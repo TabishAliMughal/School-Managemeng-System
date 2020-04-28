@@ -9,3 +9,5 @@ html5lib
 xhtml2pdf
 pillow
 django-filter
+serial
+window-curses
