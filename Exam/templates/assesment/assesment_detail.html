@@ -1,0 +1,35 @@
+{% extends "Mainpage.html" %}
+{% block content %}
+<div class="container">
+     <h1 class="text-center" style="font-family:sans-serif">Here Are All Quater In detail</h1>
+     <h1><caption>Details Of Quater</caption></h1>
+        <table class="table table-hover table-sm table-dark">
+              <tbody>
+                <tr>
+                    <th>Exam_code</th>
+                    <th>{{ Entry.exam_code }}</th>
+                </tr>
+                <tr>
+                    <th>Semester_code</th>
+                    <th>{{ Entry.semester_code }}</th>
+                </tr>
+                <tr>
+                    <th>SemesterB_code</th>
+                    <th>{{ Entry.semesterbreakup_code }}</th>
+                </tr>
+                <tr>
+                    <th>quater_code</th>
+                    <th>{{ Entry.quater_code }}</th>
+                </tr>
+                <tr>
+                    <th>assesment_code</th>
+                    <th>{{ Entry.assesment_code }}</th>
+                </tr>
+                <tr>
+                    <th>assesment_name</th>
+                    <th>{{ Entry.assesment_name }}</th>
+                </tr>
+        </table>
+        <button class="text-right"><a href="{% url 'assesment_form'%}">Add</a></button>
+</div>
+{% endblock %}

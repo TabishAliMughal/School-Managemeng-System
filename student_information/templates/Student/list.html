@@ -1,0 +1,62 @@
+{% extends "MainPage.html" %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <form action="{% url 'gr_list' %}" method="POST">
+                    <label>Select Class</label>
+                    <select name="class">
+                        <option value="">---------</option>
+                        {% for rows in class %}
+                                <option value="{{ rows.class_code }}">{{ rows.class_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="fname">Select Section</label>
+                    <select name="section" >
+                        <option value="">---------</option>
+                        {% for rows in section %}
+                                <option value="{{ rows.sect_code }}">{{ rows.sect_name }}</option>
+                        {% endfor %}
+                    </select>
+                    {% csrf_token %}
+                    <input class="btn btn-primary" type="submit" value="Search"/>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-center" style="font-family:sans-serif;">View All Gr Numbers</h2><hr/>
+        <a class="btn btn-primary" href="{% url "gr_create" %}">Add Another</a>
+        <a class="btn btn-primary" href="{% url "gr_data_download" %}">Download Data</a>
+        <a>Students Of {{ one }} Class And {{ two }} Section</a>
+        <table class="table table-hover table-sm table-dark">
+            <thead align="center">
+                <tr>
+                    <th>Gr Number</th>
+                    <th>Name</th>
+                    <th>Family</th>
+                    <th>Class</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            {% for gr in GrNumber %}
+            <form action="{% url 'gr_print' gr.current_class gr.section %}" method="POST">
+            <tbody align="center">
+                <tr>
+                    <td><input class="editable" type="text" name="gr" value="{{ gr.gr_number }}" readonly></td>
+                    <td><a href="{{ gr.get_absolute_url }}"><input class="editable" type="text" name="name" value="{{ gr.name }}" readonly></a></td>
+                    <td><input class="editable" type="text" name="family" value="{{ gr.family_code }}" readonly></td>
+                    <td><input class="editable" type="text" name="class" value="{{ gr.current_class }}" readonly></td>
+                    <th><a href="{% url 'gr_edit' gr.gr_number %}">Edit </a><span> | </span><a href="{% url 'gr_delete' gr.gr_number %}" href=""> Delete</a></th>
+                </tr>
+            </tbody>
+            {% endfor %}
+            <input class="btn btn-primary" type="submit" value="Print"/>
+            {% csrf_token %}
+            </form>
+        </table>
+    </div>
+
+{% endblock %}

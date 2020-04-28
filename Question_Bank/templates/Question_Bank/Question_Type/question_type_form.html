@@ -1,0 +1,13 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1>Add Question Type</h1>
+<form action ="{% url 'question_type_form' %}" method = "POST">
+<a>Question Type = {{user_form.question_type}}</a><br><br>
+{% csrf_token %}
+<input class="btn btn-primary" type ="submit" value="Save and Add Another">
+ <a class="btn btn-primary" href="{% url 'question_type_list' %}">Back</a>
+ <a class="btn btn-primary" href="{% url 'question_type_upload' %}">Add CSV file</a>
+
+</form>
+{% endblock %}

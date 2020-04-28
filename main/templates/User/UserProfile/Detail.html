@@ -1,0 +1,42 @@
+{% extends "MainPage.html" %}
+{% block content %}
+    <div class="container">
+        <h2 class="text-center" style="font-family:sans-serif;">View All User Profiles</h2><hr/>
+        <a href="{% url "userprofilecreate_url" %}">Add Another</a>
+        <table class="table table-hover table-sm table-dark">
+            <tbody align="center">
+                <tr>
+                    <th>UserType</th>
+                    <th>{{ userprofile.Usertype }}</th>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <th>{{ userprofile.Name }}</th>
+                </tr>
+                <tr>
+                    <th>Father</th>
+                    <th>{{ userprofile.Father }}</th>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <th>{{ userprofile.Address }}</th>
+                </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <th>{{ userprofile.Mobile }}</th>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <th>{{ userprofile.Email }}</th>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <th>{{ userprofile.Password }}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% csrf_token %}
+</form>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<form action="{% url "class_fee_create" %}" method="POST">
+    <div class="container">
+        <h2 class="text-center" style="font-family:sans-serif;">Fee Type Add Form</h2><hr/>
+        <table class="table table-hover table-sm table-dark">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Form</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Class</td>
+                    <td>{{ user_form.class_code }}</td>
+                </tr>
+                <tr>
+                    <td>fee_type_code</td>
+                    <td>{{ user_form.fee_type_code }}</td>
+                </tr>
+                <tr>
+                    <td>fee_amount</td>
+                    <td>{{ user_form.fee_amount }}</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>{{ user_form.description }}</td>
+                </tr>
+                <tr>
+                    <td><input class="btn btn-primary" type="submit" value="Add to Fee Type"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% csrf_token %}
+</form>
+{% endblock %}

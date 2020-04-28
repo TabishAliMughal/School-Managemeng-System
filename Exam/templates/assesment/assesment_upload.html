@@ -1,0 +1,21 @@
+{% extends "Mainpage.html" %}
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div>
+            <strong>{{message|safe}}</strong>
+        </div>
+    {% endfor %}
+{% else %}
+{{order}}
+<form method="POST" enctype="multipart/form-data">
+    <h1>{{abc}}</h1>
+    {% csrf_token %}
+    <label>Upload a file</label>
+    <input type="file" name="file"><br>
+    <p><b><h3>NOTE</h3></b><i>ONLY accepts CSV files</i></p>
+    <button type="submit">Upload</button>
+    <button class="text-center"><a href="{% url 'assesment_list_view' %}">view list of assesment</a></button>
+</form>
+{% endif %}
+{% endblock %}

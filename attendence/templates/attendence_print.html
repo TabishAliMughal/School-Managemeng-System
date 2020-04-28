@@ -1,0 +1,30 @@
+<html>
+<body>
+<div class="container">
+        <h2 align="center">View All Gr Numbers</h2><hr/>
+        <h3>Class =  {{ InClass }}</h3>
+        <h3>Section = {{ InSection }}</h3>
+        <h3>Date =  {{ InDate }}</h3>
+        <table class="table table-hover table-sm table-dark">
+            <thead align="center">
+                <tr>
+                    <td><h5>Name</h5></td>
+                    <td><h5>Family</h5></td>
+                    <td><h5>Attended</h5></td>
+                </tr>
+            </thead>
+            {% for i in abc %}
+            <tbody align="center">
+                <tr>
+                    <td>{{ i.gr }}</td>
+                    <td>{{ i.family }}</td>
+                    <td>{{ i.attendence }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,13 @@
+
+{% extends 'MainPage.html' %}
+{% block content %}
+<h1 style="color:purple;"><b>Add Session</b></h1>
+<form action ="{% url 'session_form' %}" method = "POST">
+<a>Session Name = {{user_form.session_name}}</a><br><br>
+{% csrf_token %}
+<input "background-color:purple; color:white;" class="btn btn-primary" type ="submit" value="Save and Add Another">
+ <a "background-color:purple; color:white;" class="btn btn-primary" href="{% url 'session_list' %}"><b>Back</b></a>
+ <a "background-color:purple; color:white;" class="btn btn-primary" href="{% url 'session_upload' %}"><b>Add CSV file</b></a>
+
+</form>
+{% endblock %}

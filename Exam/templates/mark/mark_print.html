@@ -1,0 +1,29 @@
+<html>
+<body>
+<div class="container">
+        <table class="table table-hover table-sm table-dark">
+            <thead align="center">
+                <tr>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Subject</th>
+                    <th>Exam</th>
+                    <th>Semister</th>
+                    <th>Semister_B</th>
+                    <th>Quarter</th>
+                    <th>Assesment</th>
+                </tr>
+            </thead>
+            {% for i in data %}
+            <tbody align="center">
+                <tr>
+                    {% for v in i %}
+                        <td>{{ v }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

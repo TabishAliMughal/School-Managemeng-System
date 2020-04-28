@@ -1,0 +1,90 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<form action="{% url "gr_create" %}" method="POST">
+    <div class="container">
+        <h2 class="text-center" style="font-family:sans-serif;">Gr Add Form</h2><hr/>
+        <a class="btn btn-primary" href="{% url "gr_bulk" %}">Add Via File</a>
+        <table class="table table-hover table-sm table-dark">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Form</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gr Number</td>
+                    <td>{{user_form.gr_number }}</td>
+                </tr>
+                <tr>
+                    <td>Query</td>
+                    <td>{{user_form.query_code }}<a href="{% url "entry_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>{{user_form.name }}</td>
+                </tr>
+                <tr>
+                    <td>Picture</td>
+                    <td>{{user_form.picture }}</td>
+                </tr>
+                <tr>
+                    <td>Family</td>
+                    <td>{{user_form.family_code }}<a href="{% url "family_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Section</td>
+                    <td>{{user_form.section }}<a href="{% url "section_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Fee</td>
+                    <td>{{user_form.fee_concession_code }}<a href="{% url "fee_concession_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Class Of Admission</td>
+                    <td>{{user_form.class_of_admission }}<a href="{% url "class_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Session Of Admission</td>
+                    <td>{{user_form.session_of_admission }}<a href="{% url "session_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Current Class</td>
+                    <td>{{user_form.current_class }}<a href="{% url "class_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Current Session</td>
+                    <td>{{user_form.current_session }}<a href="{% url "session_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Admission Date</td>
+                    <td>{{user_form.admission_date }}</td>
+                </tr>
+                <tr>
+                    <td>Last School</td>
+                    <td>{{user_form.last_school }}<a href="{% url "school_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Religion</td>
+                    <td>{{user_form.religion }}<a href="{% url "religion_form" %}"> + </a></td>
+                </tr>
+                <tr>
+                    <td>Date Of Birth</td>
+                    <td>{{user_form.date_of_birth }}</td>
+                </tr>
+                <tr>
+                    <td>Active</td>
+                    <td>{{user_form.active }}</td>
+                </tr>
+                <tr>
+                    <td>Submit</td>
+                    <td><input class="btn btn-primary" type="submit" value="Add to Gr"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% csrf_token %}
+
+</form>
+
+{% endblock %}

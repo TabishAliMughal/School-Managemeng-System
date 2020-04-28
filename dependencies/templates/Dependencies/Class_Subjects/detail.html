@@ -1,0 +1,20 @@
+{% extends "Mainpage.html" %}
+{% block content %}
+<div class="container">
+    
+     <h1 style="color:purple;"><caption><b>Details Of Class Subjects</b></caption></h1>
+        <table class="table table-hover table-sm table-dark">
+              <tbody>
+                <tr>
+                    <th>Classes</th>
+                    <th>{{ class_subject.Class }}</th>
+                </tr>
+                <tr>
+                    <th>Subjects</th>
+                    <th>{{ class_subject.class_subjects }}</th>
+                </tr>
+              </tbody>
+        </table>
+  <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url "class_subject_form" %}"><b>Add</b></a>
+</div>
+{% endblock %}

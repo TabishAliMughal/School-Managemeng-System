@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>DIGITAL SCHOOL</title>
+        <link href="{% static './PageSetup/style.css'%}" rel="stylesheet">
+        <link  href="{% static './TopNavbar/style.css'%}" rel="stylesheet"/>
+        <link href="{% static './SideNavbar/style.css'%}" rel="stylesheet"/>
+        <link href="{% static './Footer/style.css'%}" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'Outside/css/bootstrap.css' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700" rel="stylesheet" type="text/css">
+        <link href="{% static 'Outside/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'Outside/css/style.css' %}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'Outside/css/main.css' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700" rel="stylesheet" type="text/css">
+        <link href="{% static 'Outside/css/stylesheet.css' %}" rel="stylesheet" type="text/css" />
+	</head>
+	
+	<body>
+    <div class='outdata'>
+        <div>
+            <a class='btn btn-primary' href="{% url 'MainScreen_url' %}">Back</a>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+		<div class="foot">
+			<div class="footer-icons">
+				<img src="{% static 'Outside/images/fb.JPG' %}" alt="facebook"/>
+				<img src="{% static 'Outside/images/insta.JPG' %}" alt="instagram"/>
+				<img src="{% static 'Outside/images/twit.JPG' %}" alt="twitter"/>
+			</div>
+			<p>Recommended</p>
+			<div class="footer-anchors">
+				<a href="#">team</a>
+				<a href="#">about</a>
+				<a href="#">contact</a>
+			</div>
+			<div class="footer-text">
+				<p>© 2020 DIGITAL SCHOOL. All Rights Reserved</p>
+				<p>Terms of Use Privacy Policy</p>
+				<p>Design By: <a href="#" class="team">Our Team</a></p>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="{% static 'LoginFormOtherFiles/vendor/tilt/tilt.jquery.min.js' %}"></script>
+<script >
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>

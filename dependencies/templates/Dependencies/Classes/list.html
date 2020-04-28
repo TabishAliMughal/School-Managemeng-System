@@ -1,0 +1,32 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+
+    
+<div class="container">
+    <h2 style="color:purple;" class="text-center" style="font-family:sans-serif;"><b>Classes</b></h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption style="color:purple;">Classes</caption>
+    <thead >
+    <trstyle="background-color:purple; color:white;">
+    <th>Class </th>
+    <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in Class %}
+    <tr>
+      <td>{{i.class_name}}</td>
+      <td>{{i.remarks}}</td>
+      <td><a href="{% url 'edit_class' class_code=i.class_code %}">Edit</a></td>
+      <td><a href="{% url 'delete_class' class_code=i.class_code %}">Delete</a></td>
+
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'class_form' %}"><b>Add</b></a>    
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'class_download' %}"><b>Download CSV Format</b></a>
+
+  </div>
+    {% endblock %}

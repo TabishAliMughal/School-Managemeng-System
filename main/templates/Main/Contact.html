@@ -1,0 +1,90 @@
+{% extends 'Main/Comon.html' %}
+{% load static %}
+{% block content %}
+                <div class="section-title">
+                    <h2>Contact <span class="light-text">DIGITAL SCHOOL</span></h2>
+                    <div class="title-border-container">
+                        <div class="title-border"></div>
+                    </div>
+                </div>
+            
+        <div class="contain">
+
+            <div class="checkout account thanks contactus-1">
+
+                <div class="container-cus">
+
+                    <div class="right">
+
+                        <p class="title-contact">Contact Us</p>
+
+                        <div class="address">
+
+                            <p class="left-p">@humans.pk</p>
+
+                            <p class="right-p">0335-12345678</p>
+
+                        </div>
+
+                        <div class="register">                    
+
+                            <p>If you have any query so please let us know.</p>
+
+                            <div id="dvSucess" class="alert alert-info alert-Success fade in" style="display: none">                        
+
+                                <span id="lbl_Success"></span>
+
+                            </div>
+
+                            <div id="dvError" class="alert alert-danger alert-Error fade in" style="display: none">                        
+
+                                <span id="lbl_Error"></span>
+
+                            </div>
+
+                            <div class="collapse in login-hiden">
+
+                                <div class="form-group">
+
+                                    <label for="exampleInputEmail1">Email address</label>
+
+                                    <input name="ctl00$ContentPlaceHolder1$txt_EmailC" type="text" id="ContentPlaceHolder1_txt_EmailC" class="form-control">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="exampleInputEmail1">Phone</label>
+
+                                    <input name="ctl00$ContentPlaceHolder1$txt_PhoneC" type="text" id="ContentPlaceHolder1_txt_PhoneC" class="form-control num">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="exampleInputEmail1">Message</label>
+
+                                    <textarea name="ctl00$ContentPlaceHolder1$txt_AddressC" rows="6" cols="20" id="ContentPlaceHolder1_txt_AddressC" class="form-control"></textarea>
+
+                                </div>
+
+                                <input type="submit" name="ctl00$ContentPlaceHolder1$btn_Submit" value="Submit" onclick="return validateLoginData();" id="ContentPlaceHolder1_btn_Submit" class="btn-submit">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+    {% endblock %}

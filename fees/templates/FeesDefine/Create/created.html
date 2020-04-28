@@ -1,0 +1,9 @@
+{% extends "MainPage.html" %}
+{% block content %}
+
+<h1>Your Fees Defination {{ return }} </h1>
+<h5><a href="{% url "fee_def_create" %}">Add Another</a></h5>
+<h5><a href="{% url "fee_def_list" %}">Back To List</a></h5>
+
+
+{% endblock %}

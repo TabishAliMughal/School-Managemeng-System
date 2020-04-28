@@ -1,0 +1,7 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+    <br><br>
+<h3> Family {{return}} </h3>
+<a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'family_list' %}"><b>Back</b></a>
+<a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'family_form' %}"><b>Add Another</b></a>
+{% endblock %}

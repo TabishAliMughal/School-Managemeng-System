@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends "MainPage.html" %}
+{% block content %}
+<div class="container">
+
+    <!--Main Heading-->
+        <div class="section-title">
+            <h2>home work list <span class="light-text">DIGITAL SCHOOL</span></h2>
+            <div class="title-border-container">
+                <div class="title-border"></div>
+            </div>
+        </div>
+
+    
+    
+    
+    
+    <table class="table table-hover table-sm table-dark">
+            <thead>
+                <tr>
+                    <th>Classes</th>
+                    <th>Sections</th>
+                    <th>Teacher</th>
+                    <th>Subjects</th>
+                    <th>Chapter</th>
+                    <th>Page No</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+        {% for i in Entry %}
+            <tbody>
+                <tr>
+                    <td>{{i.classes}}</td>
+                    <td>{{i.sections}}</td>
+                    <td>{{i.teacher}}</td>
+                    <td>{{i.subjects}}</td>
+                    <td>{{i.chapter}}</td>
+                    <td>{{i.page}}</td>
+                    <td>{{i.descriptions}}</td>
+                    <td>{{i.date}}</td>
+                    <td><a href="{% url 'homeWork_update' i.homework_ID %}">Edit</a></td>
+                    <td><a href="{% url 'delete_class' i.homework_ID %}">Delete</a></td>
+                </tr>
+            </tbody>
+        {% endfor %}
+      </table>
+    <a href="{% url 'homeWork_add' %}">Add</a>
+</div>
+{% endblock %}
+
+

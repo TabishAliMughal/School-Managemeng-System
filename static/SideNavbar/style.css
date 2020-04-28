@@ -1,0 +1,87 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  /* Fixed sidenav, full height */
+  .sidenav {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 84%;
+    overflow: auto;
+  }
+  /* Style the sidenav links and the dropdown button */
+  .sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* On mouse-over */
+  .sidenav a:hover, .dropdown-btn:hover {
+    color: #818181;
+  }
+  /* Main sidebar */
+  .side-block {
+    margin-left: 0px; /* Same as the width of the sidenav */
+    font-size: 12px; /* Increased text to enable scrolling */
+    padding-left: 0px;
+  }
+  
+  /* Main content */
+  .data {
+    margin-left: 250px;
+    padding: 5px;
+    width: 81%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 84%;
+    overflow: auto;
+  }
+  
+  /* Add an active class to the active dropdown button */
+  .active {
+    background-color: #f1f1f1;
+    color: #818181;
+  }
+  
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+  .dropdown-container {
+    display: none;
+    background-color: #f1f1f1;
+    padding-left: 8px;
+  }
+  
+  /* Optional: Style the caret down icon */
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+  
+  /* Some media queries for responsiveness */
+  @media screen and (max-height: 600px) {
+    /* .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 25px;} */
+    .sidenav.responsive .icon {
+      position: absolute;
+      right: 0;
+      bottom:0;
+    }
+    .sidenav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    }
+  }

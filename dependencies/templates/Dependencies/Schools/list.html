@@ -1,0 +1,32 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+
+    
+<div class="container">
+    <h2 style="color:purple;" class="text-center" style="font-family:sans-serif;"><b>Schools</b></h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption>Schools</caption>
+    <thead>
+    <tr>
+    <th>School Name</th>
+    <th>School Area</th>
+    <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for j in school %}
+    <tr>
+      <td>{{j.school_name}}</td>
+      <td>{{j.school_area}}</td>
+      <td>{{j.remarks}}</td>
+      <td><a href="{% url 'edit_school' school_code=j.school_code %}">Edit</a></td>
+      <td><a href="{% url 'delete_school' school_code=j.school_code %}">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'school_form' %}"><b>Add</b></a>    
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'school_download' %}"><b>Download CSV Format</b></a>
+  </div>
+    {% endblock %}

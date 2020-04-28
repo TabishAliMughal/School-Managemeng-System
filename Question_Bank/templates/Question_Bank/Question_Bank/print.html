@@ -1,0 +1,17 @@
+<html>
+<body>
+<div class="container">
+        <h2 align="center">Questions</h2><hr/>
+        <table class="table table-hover table-sm table-dark">
+            <tr>
+                <th>Questions</th>
+            </tr>
+            {% for i in abc %}
+            <tr>
+                <td>{{ i.question }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+</body>
+</html>

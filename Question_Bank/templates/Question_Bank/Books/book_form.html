@@ -1,0 +1,22 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1>Add Book</h1>
+<form action ="{% url 'book_form' %}" method = "POST">
+<a>Book Name = {{user_form.book_name}}</a><br><br>
+<a>Classes = {{user_form.classes}}</a><a href="{% url 'class_form' %}"> Add Class </a><br><br>
+<a>Subject = {{user_form.subject}}</a><a href="{% url 'subject_form' %}"> Add Subject </a><br><br>
+<a>Publisher = {{user_form.publisher}}</a><a href="{% url 'publisher_form' %}"> Add Publisher </a><br><br>
+<a>Medium = {{user_form.medium}}</a><br><br>
+{% csrf_token %}
+<<<<<<< HEAD
+<input class="btn btn-primary" type ="submit" value="Save and Add Another">
+ <a class="btn btn-primary" href="{% url 'book_list' %}">Back</a>
+ <a class="btn btn-primary" href="{% url 'book_upload' %}">Add CSV file</a>
+=======
+<input type ="submit" value="Save">
+<button > <a href="{% url 'book_list' %}">Back</a></button>
+<button > <a href="{% url 'book_upload' %}">Add CSV file</a></button>
+>>>>>>> 5a35615e96323f864406e4e29835f76336cfc5e1
+</form>
+{% endblock %}

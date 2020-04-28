@@ -1,0 +1,27 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+
+    
+<div class="container">
+    <h2 style="color:purple;" class="text-center" style="font-family:sans-serif;"><b>Cities</b></h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption style="color:purple;">Cities</caption>
+    <thead>
+    <tr>
+    <th>Cities</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for z in city %}
+    <tr>
+      <td>{{z.cities}}</td>
+
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+<a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url "city_form" %}"><b>Add</b></a>    
+<a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url "city_downloadt" %}"><b>Download CSV Format</b></a>   
+</div>
+    {% endblock %}

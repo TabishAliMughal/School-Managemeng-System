@@ -1,0 +1,11 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<h1>here we can semesterB form</h1>
+<form action="{% url 'semesterB_form' %}" method="POST">
+<a>exam_code = {{semesterB_form.exam_code }}</a><a href="{% url 'exam_form' %}"> Add Exam </a><br><br>
+<a>semester_code = {{semesterB_form.semester_code }}</a><a href="{% url 'semester_form' %}"> Add Semester </a><br><br>
+<a>semesterB_name = {{semesterB_form.semesterbreakup_name }}</a><br><br>
+{% csrf_token %}
+<input type="submit" value="Add to Semesterbreakup">
+</form>
+{% endblock %}

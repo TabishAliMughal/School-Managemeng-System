@@ -1,0 +1,52 @@
+{% extends "Mainpage.html" %}
+{% block content %}
+<div class="container">
+     <h1 class="text-center" style="font-family:sans-serif">Here Are All Mark In detail</h1>
+     <h1><caption>Details Of Mark</caption></h1>
+        <table class="table table-hover table-sm table-dark">
+              <tbody>
+                <tr>
+                    <th>Class_code</th>
+                    <th>{{ Entry.class_code }}</th>
+                </tr>
+                <tr>
+                    <th>subject_code</th>
+                    <th>{{ Entry.subject_code }}</th>
+                </tr>
+                <tr>
+                    <th>Exam_code</th>
+                    <th>{{ Entry.exam_code }}</th>
+                </tr>
+                <tr>
+                    <th>Semester_code</th>
+                    <th>{{ Entry.semester_code }}</th>
+                </tr>
+                <tr>
+                    <th>SemesterB_code</th>
+                    <th>{{ Entry.semesterbreakup_code }}</th>
+                </tr>
+                <tr>
+                    <th>quater_code</th>
+                    <th>{{ Entry.quater_code }}</th>
+                </tr>
+                <tr>
+                    <th>assesment_code</th>
+                    <th>{{ Entry.assesment_code }}</th>
+                </tr>
+                <tr>
+                    <th>exam_Gr_no</th>
+                    <th>{{ Entry.exam_Gr_no }}</th>
+                </tr>
+                <tr>
+                    <th>total_mark</th>
+                    <th>{{ Entry.total_marks }}</th>
+                </tr>
+                <tr>
+                    <th>obtained_mark</th>
+                    <th>{{ Entry.obtained_marks }}</th>
+                </tr>
+                
+        </table>
+        <button class="text-right"><a href="{% url 'mark_form'%}">Add</a></button>
+</div>
+{% endblock %}

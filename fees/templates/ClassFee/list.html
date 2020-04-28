@@ -1,0 +1,50 @@
+{% extends "MainPage.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="card card-body">
+            <form action="{% url 'class_fee_list' %}" method="POST">
+                <label>Select Class</label>
+                <select name="class">
+                    <option value="">---------</option>
+                    {% for rows in class %}
+                            <option value="{{ rows.class_code }}">{{ rows.class_name }}</option>
+                    {% endfor %}
+                </select>
+                {% csrf_token %}
+                <input class="btn btn-primary" type="submit" value="Search"/>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <h2 class="text-center" style="font-family:sans-serif;">View All Class Fees</h2><hr/>
+        <a href="{% url "class_fee_create" %}">Add Another</a>
+        <table class="table table-hover table-sm table-dark">
+            <thead align="center">
+                <tr>
+                    <th>Class</th>
+                    <th>Fee Type</th>
+                    <th>Fee Amount</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            {% for fee in fee %}
+            <tbody align="center">
+                    <th>{{ fee.class_code }}</th>
+                    <th>{{ fee.fee_type_code }}</th>
+                    <th>{{ fee.fee_amount }}</th>
+                    <th>{{ fee.description }}</th>
+                    <th><a class="btn btn-primary" href="{% url 'class_fee_edit' fee.class_fee_code %}">Edit</a><a href="{% url 'class_fee_delete' fee.class_fee_code %}" class="btn btn-primary" href="">Delete</a></th>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    {% csrf_token %}
+</form>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<br>
+<div class = "col">
+  <div class = "card card-body">
+    
+    <form method = "get">
+      
+        {{myFilter.form}}
+        <br>
+    <button class="btn btn-primary" type = "submit">
+        Search
+    </button>
+    </form>
+  </div>
+</div>
+<br>
+<div class="container">
+      <h2 class="text-center" style="font-family:sans-serif;">List</h2>
+      <h1>View Quater</h1>
+      <table class="table table-hover table-sm table-dark">
+        <thead>
+          <tr>
+          <th>Semester_code</th>
+          <th>Exam_code</th>
+          <th>Semesterbreakup_code</th>
+          <th>Quater_code</th>
+          <th>Quater_name</th>
+          </tr>
+        </thead>
+        {% for i in Entry %}
+        <tbody>
+          <tr>
+            <td>{{i.semester_code}}</td> 
+            <td>{{i.exam_code}}</td>
+            <td>{{i.semesterbreakup_code}}</td>
+            <th><a href="{{ i.get_absolute_url }}">{{i.quater_code}}</a></th> 
+            <td>{{i.quater_name}}</td>
+            
+            <td><a href="{% url 'edit_quater' i.quater_code %}">Edit</a></td>
+            <td><a href="{% url 'delete_quater' i.quater_code %}">Delete</a></td>
+          </tr>
+        </tbody>
+        
+        {% endfor %}
+      </table>
+      <button class="text-center"><a href="{% url 'quater_form' %}">Add</a></button>
+      <button class="text-center"><a href="{% url 'quater_upload' %}">Add file</a></button>
+  </div>
+   
+{% endblock %}

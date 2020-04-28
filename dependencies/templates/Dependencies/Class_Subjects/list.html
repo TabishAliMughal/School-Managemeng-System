@@ -1,0 +1,31 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+
+    
+<div class="container">
+    <h2 style="color:purple;" class="text-center" style="font-family:sans-serif;"><b>Classes Subjects</b></h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption>Classes Subjects</caption>
+    <thead>
+    <tr>
+    <th>Class Subject Code</th>
+    <th>Classes</th>
+    <th>Subjects</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for v in class_subject %}
+    <tr>
+      <td>{{v.Class_code}}</td>
+      <td><a href="{{ v.get_absolute_url }}">{{v.Class}}</a></td>
+      <td>{{v.class_subjects}}</td>
+      <td><a href="{% url 'edit_class_subject' Class_code=v.Class_code %}">Edit</a></td>
+      <td><a href="{% url 'delete_class_subject' Class_code=v.Class_code%}">Delete</a></td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'class_subject_form' %}"><b>Add</b></a>
+  </div>
+    {% endblock %}

@@ -1,0 +1,161 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!--Navbar digital school anchor-->
+    <a class="navbar-brand" href="{% url 'after_login_url' %}">Digital School</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        
+        <!--Dependencies or Dependencies Sub Menu-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Basic Data
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'class_list' %}">All Classes</a>
+            <a class="dropdown-item" href="{% url 'section_list' %}">Sections</a>
+            <a class="dropdown-item" href="{% url 'session_list' %}">Sessions</a>
+            <a class="dropdown-item" href="{% url 'fee_type_list' %}">Fee Head</a>
+            <a class="dropdown-item" href="{% url 'class_fee_list' %}">Class Fees Amount</a>
+            <a class="dropdown-item" href="{% url 'fee_concession_list' %}">Define Concession</a>
+            <a class="dropdown-item" href="{% url 'subject_list' %}">Subjects</a>
+            <a class="dropdown-item" href="{% url 'class_subject_list' %}">Class Subjects</a>
+            <a class="dropdown-item" href="{% url 'city_list' %}">Cities</a>
+            <a class="dropdown-item" href="{% url 'school_list' %}">Last Schools</a>
+            <a class="dropdown-item" href="{% url 'family_list' %}">Families</a>
+            <a class="dropdown-item" href="{% url 'religion_list' %}">Religions</a>
+            <a class="dropdown-item" href="{% url 'month_list' %}">Months</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        </li>
+
+        <!--Query or Query Sub Menu-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Pre Addmission
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'entry_form' %}">Add Student</a>
+            <a class="dropdown-item" href="{% url 'list_view' %}">View list</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        </li>
+
+        <!--Students or Students Sub Menu-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Addmission
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'gr_create' %}">Add Student</a>
+            <a class="dropdown-item" href="{% url 'gr_list' %}">Gr Register</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        </li>
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Class Register
+        </a>
+        </li>
+        
+        <!--Fees or Fees Sub Menu-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Fees
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'fee_reg_create' %}">Genrate Voucher</a>
+            <a class="dropdown-item" href="{% url 'fee_reg_list' %}">Fees Register(fees reciving)</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        </li>
+
+        <!--Question Bank or Question Bank Sub Menu-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Question Bank
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'book_list' %}">Books</a>
+            <a class="dropdown-item" href="{% url 'publisher_list' %}">Publishers</a>
+            <a class="dropdown-item" href="{% url 'chapter_list' %}">Chapters</a>
+            <a class="dropdown-item" href="{% url 'question_type_list' %}">Question Types</a>
+            <a class="dropdown-item" href="{% url 'question_bank_list' %}">Question Bank</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        </li>
+
+        <!--Exam or Exam Sub Menu-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Exam
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'exam_list_view' %}">Exam list</a>
+            <a class="dropdown-item" href="{% url 'semester_list_view' %}">Semester list</a>
+            <a class="dropdown-item" href="{% url 'semesterB_list_view' %}">SemesterB list</a>
+            <a class="dropdown-item" href="{% url 'quater_list_view' %}">Quater list</a>
+            <a class="dropdown-item" href="{% url 'assesment_list_view' %}">Assesment</a>
+            <a class="dropdown-item" href="{% url 'mark_list_view' %}">Mark</a>
+            <div class="dropdown-divider"></div>
+        </div>
+        </li>
+
+        
+        <!--Home Work or Home Work Sub Menu-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Homework
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'home_work_listWise' %}">Homework</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        </li>
+
+        <!--SMS or SMS Sub Menu-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sms
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'sms_create' %}">Create Sms</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        </li>
+
+    <!--Attendence or Attendence Sub Menu-->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Attendence
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{% url 'attendence_list_template' %}">Attendence</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </li>
+    
+    <!--Users or Users Sub Menu-->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Users
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{% url 'usertype_url' %}">Users Type List</a>
+        <a class="dropdown-item" href="{% url 'userprofilelist_url' %}">Users Profile</a>
+            <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </li>
+    </ul>
+    </div>
+</nav>

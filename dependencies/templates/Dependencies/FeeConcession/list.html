@@ -1,0 +1,32 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+
+    
+<div class="container">
+    <h2 style="color:purple;" class="text-center" style="font-family:sans-serif;"><b>Fee Concession</b></h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption style="color:purple;">Fee Concession</caption>
+    <thead>
+    <tr align="center">
+    <th>Fee concession Name</th>
+    <th>Concession Percent</th>
+    <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for b in fees %}
+    <tr align="center">
+      <td>{{b.fee_concession_name}}</td>
+      <td>{{b.concession_percent}}</td>
+      <td>{{b.description}}</td>
+      <td><a href="{% url 'edit_fee_concession' fee_concession_code=b.fee_concession_code %}">Edit</a></td>
+      <td><a href="{% url 'delete_fee_concession' fee_concession_code=b.fee_concession_code %}">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'fee_concession_form' %}"><b>Add</b></a>    
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'fee_concession_download' %}"><b>Download CSV Format</b></a>  
+  </div>
+    {% endblock %}

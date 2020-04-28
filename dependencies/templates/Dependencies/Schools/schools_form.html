@@ -1,0 +1,15 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1 style="color:purple;" ><b>Add School</b></h1>
+<form action ="{% url 'school_form' %}" method = "POST">
+<a>School Name = {{user_form.school_name}}</a><br><br>
+<a>School Area = {{user_form.school_area}}</a><br><br>
+<a>Remarks = {{user_form.remarks}}</a><br><br>
+{% csrf_token %}
+<input style="color:purple;" class="btn btn-primary" type ="submit" value="Save and Add Another">
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'school_list' %}"><b>Back</b></a>
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'school_upload' %}"><b>Add CSV file</b></a>
+
+</form>
+{% endblock %}

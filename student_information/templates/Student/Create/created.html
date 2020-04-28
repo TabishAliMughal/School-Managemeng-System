@@ -1,0 +1,8 @@
+{% extends "MainPage.html" %}
+{% block content %}
+
+<h1>Your Gr {{ return }} </h1>
+<a class="btn btn-primary" href="{% url 'gr_list' %}">Back</a></button>
+<a class="btn btn-primary" href="{% url 'gr_create' %}">Add Another</a></button>
+
+{% endblock %}
