@@ -1,0 +1,83 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="sidenav">
+        <button class="dropdown-btn">Basic Data<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a class="dropdown-item" href="{% url 'class_list' %}">All Classes</a>
+            <a class="dropdown-item" href="{% url 'section_list' %}">Sections</a>
+            <a class="dropdown-item" href="{% url 'session_list' %}">Sessions</a>
+            <a class="dropdown-item" href="{% url 'fee_type_list' %}">Fee Head</a>
+            <a class="dropdown-item" href="{% url 'class_fee_list' %}">Class Fees Amount</a>
+            <a class="dropdown-item" href="{% url 'fee_concession_list' %}">Define Concession</a>
+            <a class="dropdown-item" href="{% url 'subject_list' %}">Subjects</a>
+            <a class="dropdown-item" href="{% url 'class_subject_list' %}">Class Subjects</a>
+            <a class="dropdown-item" href="{% url 'city_list' %}">Cities</a>
+            <a class="dropdown-item" href="{% url 'school_list' %}">Last Schools</a>
+            <a class="dropdown-item" href="{% url 'family_list' %}">Families</a>
+            <a class="dropdown-item" href="{% url 'religion_list' %}">Religions</a>
+            <a class="dropdown-item" href="{% url 'month_list' %}">Months</a>
+        </div>
+        <button class="dropdown-btn">Pre Addmission<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+                <a class="dropdown-item" href="{% url 'entry_form' %}">Add Student</a>
+                <a class="dropdown-item" href="{% url 'list_view' %}">View list</a>
+        </div>
+        <button class="dropdown-btn">Addmission<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+                <a class="dropdown-item" href="{% url 'gr_create' %}">Add Student</a>
+                <a class="dropdown-item" href="{% url 'gr_list' %}">Gr Register</a>
+        </div>
+        <button class="dropdown-btn">Fees<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+                <a class="dropdown-item" href="{% url 'fee_reg_create' %}">Genrate Voucher</a>
+                <a class="dropdown-item" href="{% url 'fee_reg_list' %}">Fees Register(fees reciving)</a>
+        </div>
+        <button class="dropdown-btn">Question Bank<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+                <a class="dropdown-item" href="{% url 'book_list' %}">Books</a>
+                <a class="dropdown-item" href="{% url 'publisher_list' %}">Publishers</a>
+                <a class="dropdown-item" href="{% url 'chapter_list' %}">Chapters</a>
+                <a class="dropdown-item" href="{% url 'question_type_list' %}">Question Types</a>
+                <a class="dropdown-item" href="{% url 'question_bank_list' %}">Question Bank</a>
+        </div>
+        <button class="dropdown-btn">Exam<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+                <a class="dropdown-item" href="{% url 'exam_list_view' %}">Exam list</a>
+                <a class="dropdown-item" href="{% url 'semester_list_view' %}">Semester list</a>
+                <a class="dropdown-item" href="{% url 'semesterB_list_view' %}">SemesterB list</a>
+                <a class="dropdown-item" href="{% url 'quater_list_view' %}">Quater list</a>
+                <a class="dropdown-item" href="{% url 'assesment_list_view' %}">Assesment</a>
+                <a class="dropdown-item" href="{% url 'mark_list_view' %}">Mark</a>
+        </div>
+        <button class="dropdown-btn">Homework<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+                <a class="dropdown-item" href="{% url 'home_work_listWise' %}">Homework</a>
+        </div>
+        <button class="dropdown-btn">Sms<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+                <a class="dropdown-item" href="{% url 'sms_create' %}">Create Sms</a>
+        </div>
+        <button class="dropdown-btn">Attendence<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+                <a class="dropdown-item" href="{% url 'attendence_list_template' %}">Attendence</a>
+        </div>
+    </div>
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>

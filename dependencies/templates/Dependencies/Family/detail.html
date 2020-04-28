@@ -1,0 +1,36 @@
+{% extends "Mainpage.html" %}
+{% block content %}
+<div class="container">
+    
+     <h1 style="color:purple;"><caption><b>Details Of Family</b></caption></h1>
+        <table class="table table-hover table-sm table-dark">
+              <tbody>
+                <tr>
+                    <th>Surname</th>
+                    <th>{{ family.surname }}</th>
+                </tr>
+                <tr>
+                    <th>Father Name</th>
+                    <th>{{ family.father_name }}</th>
+                </tr>
+                <tr>
+                    <th>Father's Phone Number</th>
+                    <th>{{ family.ph_no_father }}</th>
+                </tr>
+                <tr>
+                    <th>Mother Name</th>
+                    <th>{{ family.mother_name }}</th>
+                </tr>
+                <tr>
+                    <th>Mother's Phone Number</th>
+                    <th>{{ family.ph_no_mother }}</th>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <th>{{ family.address }}</th>
+                </tr>
+              </tbody>
+        </table>
+        <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'family_form' %}"></b>Add</b></a>
+</div>
+{% endblock %}

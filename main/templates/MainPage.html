@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+      <link href="{% static './PageSetup/style.css'%}" rel="stylesheet">
+      <link  href="{% static './TopNavbar/style.css'%}" rel="stylesheet"/>
+      <link href="{% static './SideNavbar/style.css'%}" rel="stylesheet"/>
+      <link href="{% static './Footer/style.css'%}" rel="stylesheet"/>
+      <!--Page Title-->
+      <title>DIGITAL SCHOOL</title>
+  </head>
+  <body>
+    {% comment %} {% include 'MainExtended/TopNavbar.html' %} {% endcomment %}
+    {% include 'MainExtended/TopNav.html' %}
+    {% comment %} <div class="container"> {% endcomment %}
+      <div class='side-block'>
+        {% include 'MainExtended/SideNavbar.html' %}
+      </div>
+      <div class='data'>
+        <div class="col">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    {% comment %} </div> {% endcomment %}
+      {% include 'MainExtended/Footer.html' %}
+  </body>
+
+</html>

@@ -1,0 +1,33 @@
+{% extends "Mainpage.html" %}
+{% block content %}
+<div class="container">
+    
+     <h1><caption>Details Of Book</caption></h1>
+        <table class="table table-hover table-sm table-dark">
+              <tbody>
+                <tr>
+                    <th>Book Name</th>
+                    <th>{{ book.book_name }}</th>
+                </tr>
+                <tr>
+                    <th>Classes</th>
+                    <th>{{ book.classes }}</th>
+                </tr>
+                <tr>
+                    <th>Subject</th>
+                    <th>{{ book.subject }}</th>
+                </tr>
+                <tr>
+                    <th>Publisher</th>
+                    <th>{{ book.publisher }}</th>
+                </tr>
+                <tr>
+                    <th>Medium</th>
+                    <th>{{ book.medium }}</th>
+                </tr>
+              </tbody>
+        </table>
+        <a class="btn btn-primary" href="{% url 'book_form' %}">Add</a>
+        
+</div>
+{% endblock %}

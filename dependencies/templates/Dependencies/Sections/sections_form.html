@@ -1,0 +1,14 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1 style="color:purple;" ><b>Add Section</b></h1>
+<form action ="{% url 'section_form' %}" method = "POST">
+<a>Section Name = {{user_form.sect_name}}</a><br><br>
+<a>Remarks = {{user_form.remarks}}</a><br><br>
+{% csrf_token %}
+<input style="background-color:purple; color:white;" class="btn btn-primary" type ="submit" value="Save and Add Another">
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'section_list' %}"><b>Back</b></a>
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'section_upload' %}"><b>Add CSV file</b></a>
+
+</form>
+{% endblock %}

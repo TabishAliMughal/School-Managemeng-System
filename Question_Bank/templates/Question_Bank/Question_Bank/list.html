@@ -1,0 +1,95 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+  
+    <div class="row">
+      <div class="col">
+          <div class="card card-body">
+              <form action="{% url 'question_bank_list' %}" method="POST">
+                  <label>Select Class</label>
+                  <select name="class_">
+                      <option value="">---------</option>
+                      {% for rows in class %}
+                              <option value="{{ rows.class_code }}">{{ rows.class_name }}</option>
+                      {% endfor %}
+                  </select>
+                  <label for="fname">Select Subject</label>
+                  <select name="subject_" >
+                      <option value="">---------</option>
+                      {% for rows in subject %}
+                              <option value="{{ rows.subject_code }}">{{ rows.subjects }}</option>
+                      {% endfor %}
+                  </select>
+                  <label for="fname">Select Book</label>
+                  <select name="book_" >
+                      <option value="">---------</option>
+                      {% for rows in book %}
+                              <option value="{{ rows.book_code }}">{{ rows.book_name }}</option>
+                      {% endfor %}
+                  </select>
+                  <label for="fname">Select Chapter</label>
+                  <select name="chapter_" >
+                      <option value="">---------</option>
+                      {% for rows in chapter %}
+                              <option value="{{ rows.chapter_code }}">{{ rows.chapter_name }}</option>
+                      {% endfor %}
+                  </select>
+                  <label for="fname">Select Question Type</label>
+                  <select name="quest_type_" >
+                      <option value="">---------</option>
+                      {% for rows in quest_type %}
+                              <option value="{{ rows.Q_type_code }}">{{ rows.question_type }}</option>
+                      {% endfor %}
+                  </select>
+                  {% csrf_token %}
+                  <input class="btn btn-primary" type="submit" value="Search"/>
+              </form>
+
+          </div>
+      </div>
+  </div> 
+
+<div class="container">
+    <h2 class="text-center" style="font-family:sans-serif;">Questions</h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption>Questions</caption>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Classes</th>
+          <th>Subject</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for qb in q_bank %}
+          <tr>
+            <td><a href="{{ qb.get_absolute_url }}">{{qb.question}}</a></td>
+            <td>{{qb.classes}}</td>
+            <td>{{qb.subject}}</td>
+            <td><a href="{% url 'edit_question_bank' question_code=qb.question_code %}">Edit</a></td>
+            <td><a href="{% url 'delete_question_bank' question_code=qb.question_code %}">Delete</a></td>
+            <td><a href="{% url 'question_bank_detail' question_code=qb.question_code %}">Details</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  <a class="btn btn-primary" href="{% url 'question_bank_form' %}">Add</a>
+  <a class="btn btn-primary" href="{% url 'book_download' %}">Download CSV Format</a>
+
+  </div>
+  <div class = "col">
+    <div class = "card card-body">
+      <form action="{% url 'question_bank_filter' %}" method="POST">
+        {% csrf_token %}
+          <a>Subject = {{ myFilter.subject }}</a><br><br>
+          <a>Class = {{ myFilter.classes }}</a><br><br>
+          <a>Book = {{ myFilter.book }}</a><br><br>
+          <a>Chapter = {{ myFilter.chapter }}</a><br><br>
+          <a>Question Type = {{ myFilter.question_type }}</a><br><br>
+          <a>From = {{ myFilter.questions_from }}</a><br><br>
+          <a>Quantity = <input name="qty"></input><br><br>
+          <input type ="submit" value="Search"/>
+          <input class="btn btn-primary" type="submit" value="Print"/>      
+      </form>
+    </div>
+  </div>
+    {% endblock %}

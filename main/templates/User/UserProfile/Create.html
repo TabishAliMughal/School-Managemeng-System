@@ -1,0 +1,53 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<form action="{% url "userprofilecreate_url" %}" method="POST">
+    <div class="container">
+        <h2 class="text-center" style="font-family:sans-serif;">Create A User Profile</h2><hr/>
+        <table class="table table-hover table-sm table-dark" align="center">
+            <thead align="center">
+                <tr>
+                    <th>Name</th>
+                    <th>Form</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+                <tr>
+                    <td>UserType</td>
+                    <td>{{ form.Usertype }}</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>{{ form.Name }}</td>
+                </tr>
+                <tr>
+                    <td>Father</td>
+                    <td>{{ form.Father }}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{ form.Address }}</td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td>{{ form.Mobile }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ form.Email }}</td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>{{ form.Password }}</td>
+                </tr>
+                <tr>
+                    <td>Submit</td>
+                    <td><input type="submit" value="Add User Profile"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% csrf_token %}
+
+</form>
+
+{% endblock %}

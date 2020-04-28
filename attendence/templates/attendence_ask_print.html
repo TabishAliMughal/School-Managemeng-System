@@ -1,0 +1,25 @@
+{% extends "MainPage.html" %}
+{% block content %}
+    <form action="{% url 'attendence_print' %}" method="POST">
+        <label>Select Class</label>
+        <select name="class">
+            <option value="">---------</option>
+            {% for rows in class %}
+                    <option value="{{ rows.class_code }}">{{ rows.class_name }}
+                    </option>
+            {% endfor %}
+        </select>
+        <label for="fname">Select Section</label>
+        <select name="section" >
+            <option value="">---------</option>
+            {% for rows in section %}
+                    <option value="{{ rows.sect_code }}">{{ rows.sect_name }}
+                    </option>
+            {% endfor %}
+        </select>
+        <label for="fname">Select Date</label>
+        <input type='date' name = "date" value=""/><br><br>
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="Print"/>
+    </form>
+{% endblock %}

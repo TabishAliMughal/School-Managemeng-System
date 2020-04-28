@@ -1,0 +1,14 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1 style="color:purple;"><b>Add Fee Type</b></h1>
+<form action ="{% url 'fee_type_form' %}" method = "POST">
+<a style="color:purple;" ><b>Fee Type</b> = {{user_form.fee_type}}</a><br><br>
+<a style="color:purple;"><b>Description</b>= {{user_form.description}}</a><br><br>
+{% csrf_token %}
+<input style="background-color:purple; color:white;" class="btn btn-primary" type ="submit" value="Save and Add Another">
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'fee_type_list' %}"><b>Back</b></a>
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'fee_type_upload' %}"><b>Add CSV file</b></a>
+
+</form>
+{% endblock %}

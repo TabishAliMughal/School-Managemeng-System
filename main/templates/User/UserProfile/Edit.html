@@ -1,0 +1,48 @@
+{% extends "MainPage.html" %}
+{% block content %}
+    <div class="container">
+        <h2 class="text-center" style="font-family:sans-serif;">Edit A User Profile</h2><hr/>
+        <form action="{% url "userprofileedit_url" data.UserCode %}" method="POST">
+        <table class="table table-hover table-sm table-dark">
+            <tbody align="center">
+                <tr>
+                    <th>UserType</th>
+                    <th>{{ return.Usertype }}</th>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <th>{{ return.Name }}</th>
+                </tr>
+                <tr>
+                    <th>Father</th>
+                    <th>{{ return.Father }}</th>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <th>{{ return.Address }}</th>
+                </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <th>{{ return.Mobile }}</th>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <th>{{ return.Email }}</th>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <th>{{ return.Password }}</th>
+                </tr>
+                <tr>
+                    <th>Action</th>
+                    <th><input class="btn btn-primary" type="submit" value="Save User Profile"></th>
+                </tr>
+            </tbody>
+            {% csrf_token %}
+            </form>
+        </table>
+    </div>
+    {% csrf_token %}
+</form>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1 style="color:purple;"><b>Add Family</b></h1>
+<form action ="{% url 'family_form' %}" method = "POST">
+<a style="color:purple;">Surname = {{user_form.surname}}</a><br><br>
+<a style="color:purple;">Father Name = {{user_form.father_name}}</a><br><br>
+<a style="color:purple;">Father Phone_No = {{user_form.ph_no_father}}</a><br><br>
+<a style="color:purple;">Mother Name = {{user_form.mother_name}}</a><br><br>
+<a style="color:purple;">Mother Phone_No = {{user_form.ph_no_mother}}</a><br><br>
+<a style="color:purple;">Address = {{user_form.address}}</a><br><br>
+{% csrf_token %}
+<input style="background-color:purple; color:white;" class="btn btn-primary" type ="submit" value="Save and Add Another">
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'family_list' %}"><b>Back</b></a>
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'family_upload' %}"><b>Add CSV file</b></a>
+</form>
+{% endblock %}

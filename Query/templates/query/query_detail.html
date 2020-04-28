@@ -1,0 +1,64 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<div class="container">
+     <h1 class="text-center" style="font-family:sans-serif">Here Are All queries In detail Form</h1>
+     <h1><caption>Details Of Queries</caption></h1>
+        <table class="table table-hover table-sm table-dark">
+              <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>{{ Entry.Name }}</th>
+                </tr>
+                <tr>
+                    <th>father_name</th>
+                    <th>{{ Entry.father_name }}</th>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <th>{{ Entry.Address }}</th>
+                </tr>
+                <tr>
+                    <th>gender</th>
+                    <th>{{ Entry.gender }}</th>
+                </tr>
+                <tr>
+                    <th>last</th>
+                    <th>{{ Entry.last }}</th>
+                </tr>
+                <tr>
+                    <th>Previous_school</th>
+                    <th>{{ Entry.Previous_school }}</th>
+                </tr>
+                <tr>
+                    <th>Addmission_required</th>
+                    <th>{{ Entry.Addmission_required }}</th>
+                </tr>
+                <tr>
+                    <th>Test_performed</th>
+                    <th>{{ Entry.Test_performed }}</th>
+                </tr>
+                <tr>
+                    <th>Suggested_class</th>
+                    <th>{{ Entry.Suggested_class }}</th>
+                </tr>
+                <tr>
+                    <th>test_teacher</th>
+                    <th>{{ Entry.test_teacher }}</th>
+                </tr>
+                <tr>
+                    <th>date_of_test</th>
+                    <th>{{ Entry.date_of_test }}</th>
+                </tr>
+                <tr>
+                    <th>Fee_type</th>
+                    <th>{{ Entry.Fee_type }}</th>
+                </tr>
+                <tr>
+                    <th>Contact</th>
+                    <th>{{ Entry.Contact }}</th>
+                </tr>
+              </tbody>
+        </table>
+        <button class="text-right"><a href="{% url 'entry_form' %}">Add</a></button>
+</div>
+{% endblock %}

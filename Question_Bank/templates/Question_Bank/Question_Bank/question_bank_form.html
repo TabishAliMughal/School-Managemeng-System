@@ -1,0 +1,27 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1>Add Question</h1>
+<form action ="{% url 'question_bank_form' %}" method = "POST">
+<a>Question = {{user_form.question}}</a><br><br>
+<a>Subject = {{user_form.subject}}</a><a href="{% url 'subject_form' %}"> Add Subject </a><br><br>
+<a>Class = {{user_form.classes}}</a><a href="{% url 'class_form' %}"> Add Class </a><br><br>
+<a>Publisher = {{user_form.publisher}}</a><a href="{% url 'publisher_form' %}"> Add Publisher </a><br><br>
+<a>Book = {{user_form.book}}</a><a href="{% url 'book_form' %}"> Add Book </a><br><br>
+<a>Chapter = {{user_form.chapter}}</a><a href="{% url 'chapter_form' %}"> Add Chapter </a><br><br>
+<a>Question Type = {{user_form.question_type}}</a><a href="{% url 'question_type_form' %}"> Add Question Type </a><br><br>
+<a>Question From = {{user_form.questions_from}}</a><br><br>
+
+{% csrf_token %}
+<<<<<<< HEAD
+<input class="btn btn-primary" type ="submit" value="Save and Add Another"/>
+ <a class="btn btn-primary" href="{% url 'question_bank_list' %}">Back</a>
+ <a class="btn btn-primary" href="{% url 'question_bank_upload' %}">Add CSV file</a>
+=======
+<input type ="submit" value="Save"/>
+<button > <a href="{% url 'question_bank_list' %}">Back</a></button>
+<button > <a href="{% url 'question_bank_upload' %}">Add CSV file</a></button>
+>>>>>>> 5a35615e96323f864406e4e29835f76336cfc5e1
+
+</form>
+{% endblock %}

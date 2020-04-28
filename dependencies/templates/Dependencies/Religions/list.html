@@ -1,0 +1,28 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+
+    
+<div class="container">
+    <h2 style="color:purple;" class="text-center" style="font-family:sans-serif;"><b>Religions</b></h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption style="color:purple;">Religions</caption>
+    <thead>
+    <tr align="center">
+    <th>Religion</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for e in religion %}
+    <tr align="center">
+      <td>{{e.religion}}</td>
+      <td><a href="{% url 'edit_religion' religion_code=e.religion_code %}">Edit</a></td>
+      <td><a href="{% url 'delete_religion' religion_code=e.religion_code %}">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+    <a "background-color:purple; color:white;" class="btn btn-primary" href="{% url 'religion_form' %}"><b>Add</b></a>    
+    <a "background-color:purple; color:white;" class="btn btn-primary" href="{% url 'religion_download' %}"><b>Download CSV Format</b></a> 
+  </div>
+    {% endblock %}

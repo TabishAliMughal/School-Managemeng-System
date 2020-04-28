@@ -1,0 +1,7 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+    <br><br>
+<h3> School {{return}} </h3>
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'school_list' %}"><b>Back</b></a>
+ <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'school_form' %}"><b>Add Another</b></a>
+{% endblock %}

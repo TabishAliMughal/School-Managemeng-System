@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends "MainPage.html" %}
+{% block content %}
+<form action="{% url 'homeWork_update' data.homework_ID %}" method="POST">
+    
+    <!--Main Heading-->
+    <div class="container">
+    <div class="section-title">
+        <h2>home work Edit <span class="light-text">DIGITAL SCHOOL</span></h2>
+        <div class="title-border-container">
+            <div class="title-border"></div>
+        </div>
+    </div>
+        <table class="table table-hover table-sm table-dark">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Form</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>classes</td>
+                    <td>{{user.classes }}</td>
+                </tr>
+                <tr>
+                    <td>sections</td>
+                    <td>{{user.sections }}</td>
+                </tr>
+                <tr>
+                    <td>Teacher</td>
+                    <td>{{user.teacher}}</td>
+                </tr>
+                <tr>
+                    <td>subjects</td>
+                    <td>{{user.subjects }}</td>
+                </tr>
+                <tr>
+                    <td>chapter</td>
+                    <td>{{user.chapter }}</td>
+                </tr>
+                <tr>
+                    <td>page</td>
+                    <td>{{user.page }}</td>
+                </tr>
+                <tr>
+                    <td>descriptions</td>
+                    <td>{{user.descriptions }}</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>{{user.date }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary" name="button">Update</button>
+    </div>
+    {% csrf_token %}
+</form>
+
+{% endblock %}
+    

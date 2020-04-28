@@ -1,0 +1,11 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1>Months</h1>
+<form action ="{% url 'month_form' %}" method = "POST">
+<a>Months= {{user_form.months}}</a>
+{% csrf_token %}
+<input type ="submit" value="Save">
+<button > <a href="{% url 'month_list' %}">Back</a></button>
+</form>
+{% endblock %}

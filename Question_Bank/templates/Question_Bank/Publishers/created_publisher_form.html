@@ -1,0 +1,7 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+    <br><br>
+<h3> Publisher {{return}} </h3>
+ <a class="btn btn-primary" href="{% url 'publisher_list' %}">Back</a>
+ <a class="btn btn-primary" href="{% url 'publisher_form' %}">Add Another</a>
+{% endblock %}

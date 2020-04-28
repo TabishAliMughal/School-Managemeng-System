@@ -1,0 +1,77 @@
+{% comment %} {% extends "MainPage.html" %}
+{% block content %}
+<h2>Create random questions</h2>
+
+<button class="login100-form-btn">Create</a></button>
+<a>Quantity = <input class="input100" type="text" name="quantity" placeholder="Count"><br><br></a>
+ {% for o in object_list %}
+    <tr class = "{% cycle 'subject' 'classes' as object_list %}">
+        
+    </tr>
+{% endfor %}
+
+{% endblock %}  {% endcomment %}
+
+{% comment %} {% extends "MainPage.html" %}
+{% block content %}
+<form method='POST'>
+ {% for o in object_list %}
+    <tr class = "{% cycle 'row1' 'row2' %}">
+        
+    </tr>
+{% endfor %}
+    {% csrf_token %}
+    <a>classes = {{ user_form.class_name }}</a><br>
+    <a>subject = {{ subject.subjects }}</a><br>
+    <a>book = {{ book.book_name }}</a><br>
+    <a>chapter = {{ chapter.chapter_name }}</a><br>
+    <a>question_type = {{ questiontype.}}</a><br>
+    <a>Quantity = <input class="input100" type="text" name="quantity" placeholder="Count"><br><br></a>
+    <button class="login100-form-btn">Create</button>
+</form>
+{% endblock %}  {% endcomment %}
+
+{% comment %} 
+{% extends "MainPage.html" %}
+{% block content %}
+<form method='POST'>
+    {% csrf_token %}
+    
+    
+    <select name="clas" >
+    <option value="">---------</option>
+    </select><br><br>
+    <select name="clas">
+    <option value="">---------</option>
+    {% for j in data %}
+    <option value="{{ j.class_name }}">{{ j.class_name }}</option>
+    {% endfor %}
+    </select><br><br>
+    <select name="subject">
+    <option value="">---------</option>
+    {% for s in sub %}
+    <option value="{{ s.subjects }}">{{ s.subjects }}</option>
+    {% endfor %} 
+    <select name="book">
+    <option value="">---------</option>
+    {% for b in boo %}
+    <option value="{{ b.book_name }}">{{ b.book_name }}</option>
+    {% endfor %} 
+    <select name="chapter">
+    <option value="">---------</option>
+    {% for c in chap %}
+    <option value="{{ c.chapter_name }}">{{ c.chapter_name }}</option>
+    {% endfor %}  
+    <select name="question_type">
+    <option value="">---------</option>
+    {% for q in qut %}
+    <option value="{{ q.question_type }}">{{ c.chapter_name }}</option>
+    {% endfor %} 
+
+    <input class="input100" type="text" name="sms" placeholder="Type Message"><br><br>
+    <div class="container-login100-form-btn">
+    <button class="login100-form-btn">Login</button>
+</form>
+{% endblock %} {% endcomment %}
+
+

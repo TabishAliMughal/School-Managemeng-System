@@ -1,0 +1,59 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+    <div class="row">
+      <div class="col">
+          <div class="card card-body">
+              <form action="{% url 'family_list' %}" method="POST">
+                  <label style="color:purple;">Select Class</label>
+                  <select name="class">
+                      <option value="">---------</option>
+                      {% for rows in class %}
+                              <option value="{{ rows.class_code }}">{{ rows.class_name }}</option>
+                      {% endfor %}
+                  </select>
+                  <label style="color:purple;" for="fname">Select Section</label>
+                  <select name="section" >
+                      <option value="">---------</option>
+                      {% for rows in section %}
+                              <option value="{{ rows.sect_code }}">{{ rows.sect_name }}</option>
+                      {% endfor %}
+                  </select>
+                  {% csrf_token %}
+                  <input style="background-color:purple; color:white;" class="btn btn-primary" type="submit" value="Search"/>
+              </form>
+
+          </div>
+      </div>
+  </div>
+    
+<div class="container">
+    <h2  style="color:purple;" class="text-center" style="font-family:sans-serif;"><b>Families</b></h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption style="color:purple;">Families</caption>
+    <thead>
+    <tr align="center">
+    <th>Surname</th>
+    <th>Father Name</th>
+    <th>Contact No</th>
+    <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in family %}
+    <tr align="center">
+      <td><a href="{{ a.get_absolute_url }}">{{a.surname}}</a></td>
+      <td>{{a.father_name}}</td>
+      <td>{{a.ph_no_father}}</td>
+      <td>{{a.address}}</td>
+      <td><a href="{% url 'edit_family' family_code=a.family_code %}">Edit</a></td>
+      <td><a href="{% url 'delete_family' family_code=a.family_code %}">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'family_form' %}"><b>Add</b></a>    
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'family_download' %}"><b>Download CSV Format</b></a>
+    <a style="background-color:purple; color:white;" class="btn btn-primary" href="{% url 'family_print' %}" value="Print"><b>Print</b></a>
+  </div>
+    {% endblock %}

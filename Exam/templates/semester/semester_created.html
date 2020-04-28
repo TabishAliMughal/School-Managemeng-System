@@ -1,0 +1,5 @@
+{% extends "MainPage.html" %}
+{% block content %}<h1> Semester {{return}} </h1>
+<button class="text-center"><a href="{% url 'semester_list_view' %}">Back</a></button>
+<button class="text-center"><a href="{% url 'semester_form' %}">Add Form</a></button>
+{% endblock %}

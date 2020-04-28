@@ -1,0 +1,28 @@
+<html>
+<body>
+<div class="container">
+        <h2 align="center">View All Gr Numbers</h2><hr/>
+        <h3>Students Of {{ one }} Class And {{ two }} Section</h3>
+        <table class="table table-hover table-sm table-dark">
+            <thead align="center">
+                <tr>
+                    <th>Gr Number</th>
+                    <th>Name</th>
+                    <th>Family</th>
+                    <th>Class</th>
+                </tr>
+            </thead>
+            {% for i in abc %}
+            <tbody align="center">
+                <tr>
+                    <td>{{ i.gr_number }}</td>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.family_code }}</td>
+                    <td>{{ i.current_class }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

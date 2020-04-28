@@ -1,0 +1,31 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+
+    
+<div class="container">
+    <h2 class="text-center" style="font-family:sans-serif;">Chapters</h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption>Chapters</caption>
+    <thead>
+    <tr>
+    <th>Chapter Names</th>
+    <th>Books</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in chapter %}
+    <tr>
+      <td>{{t.chapter_name}}</td>
+      <td>{{t.books}}</td>
+      <td><a href="{% url 'edit_chapter' chapter_code=t.chapter_code %}">Edit</a></td>
+      <td><a href="{% url 'delete_chapter' chapter_code=t.chapter_code %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+  <a class="btn btn-primary" href="{% url 'chapter_form' %}">Add</a>
+  <a class="btn btn-primary" href="{% url 'chapter_download' %}">Download CSV Format</a>
+    <a class="btn btn-primary" href="{% url 'chapter_print' %}" value="Print">Print</a>
+
+  </div>
+    {% endblock %}

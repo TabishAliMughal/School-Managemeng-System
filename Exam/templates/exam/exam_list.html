@@ -1,0 +1,45 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<br>
+<div class = "col">
+  <div class = "card card-body">
+    
+    <form method = "get">
+      
+        {{myFilter.form}}
+        <br>
+    <button class="btn btn-primary" type = "submit">
+        Search
+    </button>
+    </form>
+  </div>
+</div>
+<br>
+<div class="container">
+      <h2 class="text-center" style="font-family:sans-serif;">List</h2>
+      <h1>View exam</h1>
+      <table class="table table-hover table-sm table-dark">
+        <thead>
+          <tr>
+          <th>Exam_code</th>
+          <th>Exam_session</th>
+          </tr>
+        </thead>
+        {% for i in Entry %}
+        <tbody>
+          <tr>
+            <td>{{i.exam_code}}</td> 
+            <td><a href="{{ i.get_absolute_url }}">{{i.exam_session}}</a></td>
+            
+            <td><a href="{% url 'edit_exam' exam_code=i.exam_code %}">Edit</a></td>
+            <td><a href="{% url 'delete_exam' exam_code=i.exam_code %}">Delete</a></td>
+          </tr>
+        </tbody>
+        
+        {% endfor %}
+      </table>
+      <button class="text-center"><a href="{% url 'exam_form' %}">Add</a></button>
+      <button class="text-center"><a href="{% url 'exam_upload' %}">Add File</a></button>
+  </div>
+   
+{% endblock %}

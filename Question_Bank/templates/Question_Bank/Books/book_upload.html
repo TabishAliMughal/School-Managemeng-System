@@ -1,0 +1,22 @@
+{% extends "Mainpage.html" %}
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div>
+            <strong>{{message|safe}}</strong><br>
+        </div>
+    {% endfor %}
+{% else %}
+{{order}}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <label><h3>Upload a file</h3></label>
+    <input type="file" name="file">
+    <p><b>Only accepts CSV files</b></p>
+    <button type="submit">Upload</button>
+    <a class="btn btn-primary" href="{% url 'book_list' %}">Book List</a>
+    <a class="btn btn-primary" href="{% url 'book_form' %}">Back</a>
+</form>
+{% endif %}
+{% endblock %}

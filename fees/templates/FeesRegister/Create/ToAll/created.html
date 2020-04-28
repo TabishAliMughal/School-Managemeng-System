@@ -1,0 +1,9 @@
+{% extends "MainPage.html" %}
+{% block content %}
+
+<h1>Your Fees {{ return }} In Fees Register </h1>
+<h5><a href="{% url "fee_reg_create_to_all" %}">Add Another</a></h5>
+<h5><a href="{% url "fee_reg_list" %}">Back To List</a></h5>
+
+
+{% endblock %}

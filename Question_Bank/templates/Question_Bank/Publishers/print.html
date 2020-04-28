@@ -1,0 +1,19 @@
+<html>
+<body>
+<div class="container">
+        <h2 align="center">View All Publisher</h2><hr/>
+        <table class="table table-hover table-sm table-dark">
+            <tr>
+                <th>Publishers</th>
+                <th>Cities</th>
+            </tr>
+            {% for i in abc %}
+            <tr>
+                <td>{{ i.publisher_name }}</td>
+                <td>{{ i.city }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+
+    <div class="row">
+      <div class="col">
+          <div class="card card-body">
+              <form action="{% url 'book_list' %}" method="POST">
+                  <label>Select Class</label>
+                  <select name="class">
+                      <option value="">---------</option>
+                      {% for rows in class %}
+                              <option value="{{ rows.class_code }}">{{ rows.class_name }}</option>
+                      {% endfor %}
+                  </select>
+                  <label for="fname">Select Subject</label>
+                  <select name="subject" >
+                      <option value="">---------</option>
+                      {% for rows in subject %}
+                              <option value="{{ rows.subject_code }}">{{ rows.subjects }}</option>
+                      {% endfor %}
+                  </select>
+                  <label for="fname">Select Publisher</label>
+                  <select name="publisher" >
+                      <option value="">---------</option>
+                      {% for rows in publisher %}
+                              <option value="{{ rows.publisher_code }}">{{ rows.publisher_name }}</option>
+                      {% endfor %}
+                  </select>
+                  {% csrf_token %}
+                  <input class="btn btn-primary" type="submit" value="Search"/>
+              </form>
+
+          </div>
+      </div>
+  </div>    
+    
+<div class="container">
+    <h2 class="text-center" style="font-family:sans-serif;">Books</h2><hr/>
+    <table class="table table-hover table-sm table-dark">
+      <caption>Books</caption>
+    <thead>
+    <tr>
+    <th>Book Name</th>
+    <th>Classes</th>
+    <th>Subject</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in book %}
+    <form action="{% url 'book_print' r.classes r.subject r.publisher %}" method="POST">
+    <tr>
+      <td><a href="{{ r.get_absolute_url }}">{{r.book_name}}</a></td>
+      <td>{{r.classes}}</td>
+      <td>{{r.subject}}</td>
+      <td><a href="{% url 'edit_book' book_code=r.book_code %}">Edit</a></td>
+      <td><a href="{% url 'delete_book' book_code=r.book_code %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% csrf_token %}
+  <input class="btn btn-primary" type="submit" value="Print"/>  
+    </form>
+    </table>
+  <a class="btn btn-primary" href="{% url 'book_form' %}">Add</a>
+  <a class="btn btn-primary" href="{% url 'book_download' %}">Download CSV Format</a>
+  </div>
+    {% endblock %}

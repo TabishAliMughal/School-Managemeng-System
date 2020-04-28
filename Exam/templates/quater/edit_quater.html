@@ -1,0 +1,19 @@
+{% extends 'Mainpage.html' %}
+{% block content %}
+     <div class="container">
+        <h4 class="text-center">Edit </h4>
+        <form method="POST">
+            <br>
+            {% csrf_token %}
+            {% for field in quater_form %}
+            <div class="form-group row">
+                <label for="id_{{ field.name }}" class="col-2 col-form-label">{{ field.label }}</label>
+                <div class="col-10">
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary" name="button">UPDATE</button>
+        </form>
+    </div>  
+    {% endblock %}

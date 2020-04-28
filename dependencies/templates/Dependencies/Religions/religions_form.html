@@ -1,0 +1,12 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1 style="color:purple;"><b>Add Religion</b></h1>
+<form action ="{% url 'religion_form' %}" method = "POST">
+<a>Religion = {{user_form.religion}}</a><br><br>
+{% csrf_token %}
+<input "background-color:purple; color:white;" class="btn btn-primary" type ="submit" value="Save and Add Another">
+ <a "background-color:purple; color:white;" class="btn btn-primary" href="{% url 'religion_list' %}"><b>Back</b></a>
+ <a "background-color:purple; color:white;" class="btn btn-primary" href="{% url 'religion_upload' %}"><b>Add CSV file</b></a>
+</form>
+{% endblock %}

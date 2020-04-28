@@ -1,0 +1,46 @@
+{% extends "Mainpage.html" %}
+{% block content %}
+
+<div class="container">
+    
+     <h1><caption>Details Of Question</caption></h1>
+        <table class="table table-hover table-sm table-dark">
+              <tbody>
+                <tr>
+                    <th>Question</th>
+                    <th>{{ question_bank.question }}</th>
+                </tr>
+                <tr>
+                    <th>Classes</th>
+                    <th>{{ question_bank.classes }}</th>
+                </tr>
+                <tr>
+                    <th>Subject</th>
+                    <th>{{ question_bank.subject }}</th>
+                </tr>
+                <tr>
+                    <th>Publisher</th>
+                    <th>{{ question_bank.publisher }}</th>
+                </tr>
+                <tr>
+                    <th>Book</th>
+                    <th>{{ question_bank.book }}</th>
+                </tr>
+                <tr>
+                    <th>Chapter</th>
+                    <th>{{ question_bank.chapter }}</th>
+                </tr>
+                <tr>
+                    <th>Question Type</th>
+                    <th>{{ question_bank.question_type }}</th>
+                </tr>
+                <tr>
+                    <th>Question From</th>
+                    <th>{{ question_bank.questions_from }}</th>
+                </tr>
+              </tbody>
+        </table>
+        <a class="btn btn-primary" href="{% url 'question_bank_form' %}">Add</a>
+        
+</div>
+{% endblock %}

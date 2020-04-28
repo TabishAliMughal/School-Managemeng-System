@@ -1,0 +1,21 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<h1>here we can add Query information</h1>
+<form action="{% url 'entry_form' %}" method="POST">
+<a>Name = {{user_form.Name }}</a><br><br>
+<a>Father = {{user_form.father_name }}</a><br><br>
+<a>Address = {{user_form.Address }}</a><br><br>
+<a>Gender = {{user_form.gender }}</a><br><br>
+<a>Last = {{user_form.last }}</a><a href="{% url 'class_form' %}"> Add Class </a><br><br>
+<a>Previous_school= {{user_form.Previous_school}}</a><a href="{% url 'school_form' %}"> Add School </a><br><br>
+<a>Addmission_required = {{user_form.Addmission_required }}</a><a href="{% url 'class_form' %}"> Add Class </a><br><br>
+<a>Test_performed = {{user_form.Test_performed }}</a><br><br>
+<a>Suggested_class = {{user_form.Suggested_class }}</a><a href="{% url 'class_form' %}"> Add Class </a><br><br>
+<a>Test_teacher = {{user_form.test_teacher }}</a><br><br>
+<a>Date_of_test = {{user_form.date_of_test }}</a><br><br>
+<a>Fee_type= {{user_form.Fee_type }}</a><a href="{% url 'fee_concession_form' %}"> Add Fee </a><br><br>
+<a>Contact = {{user_form.Contact }}</a><br><br>
+{% csrf_token %}
+<input type="submit" value="Add to Entry_data">
+</form>
+{% endblock %}

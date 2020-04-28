@@ -1,0 +1,20 @@
+{% extends 'MainPage.html' %}
+
+{% block content %}
+<h1>Add Chapter</h1>
+<form action ="{% url 'chapter_form' %}" method = "POST">
+<a>Chapter Name = {{user_form.chapter_name}}</a><br><br>
+<a>Books = {{user_form.books}}</a><a href="{% url 'book_form' %}"> Add Book </a><br><br>
+{% csrf_token %}
+<<<<<<< HEAD
+<input class="btn btn-primary" type ="submit" value="Save and Add Another">
+ <a class="btn btn-primary" href="{% url 'chapter_list' %}">Back</a>
+ <a class="btn btn-primary" href="{% url 'chapter_upload' %}">Add CSV file</a>
+=======
+<input type ="submit" value="Save">
+<button > <a href="{% url 'chapter_list' %}">Back</a></button>
+<button > <a href="{% url 'chapter_upload' %}">Add CSV file</a></button>
+>>>>>>> 5a35615e96323f864406e4e29835f76336cfc5e1
+
+</form>
+{% endblock %}

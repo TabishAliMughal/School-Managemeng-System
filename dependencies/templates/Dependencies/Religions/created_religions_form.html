@@ -1,0 +1,7 @@
+{% extends 'MainPage.html' %}
+    {% block content %}
+    <br><br>
+<h3>Religion {{return}} </h3>
+ <a "background-color:purple; color:white;" class="btn btn-priamry" href="{% url 'religion_list' %}"><b>Back</b></a>
+ <a "background-color:purple; color:white;" class="btn btn-priamry" href="{% url 'religion_form' %}"><b>Add Another</b></a>
+{% endblock %}

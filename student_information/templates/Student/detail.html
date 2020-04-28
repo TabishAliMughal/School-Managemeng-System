@@ -1,0 +1,63 @@
+{% extends "MainPage.html" %}
+{% block content %}
+        <h2 class="text-center" style="font-family:sans-serif;">Detail Of Gr</h2><hr/>
+        <table class="table table-hover table-sm table-dark">
+            <tbody>
+                    <tr>
+                        <th>Gr Number</th>
+                        <th>{{ GrNumber.gr_number }}</th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>{{ GrNumber.name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Family</th>
+                        <th>{{ GrNumber.family_code }}</th>
+                    </tr>
+                    <tr>
+                        <th>Section</th>
+                        <th>{{ GrNumber.section }}</th>
+                    </tr>
+                    <tr>
+                        <th>Fee</th>
+                        <th>{{ GrNumber.fee_concession_code }}</th>
+                    </tr>
+                    <tr>
+                        <th>Class Of Admission</th>
+                        <th>{{ GrNumber.class_of_admission }}</th>
+                    </tr>
+                    <tr>
+                        <th>Session Of Admission</th>
+                        <th>{{ GrNumber.session_of_admission }}</th>
+                    </tr>
+                    <tr>
+                        <th>Current Class</th>
+                        <th>{{ GrNumber.current_class }}</th>
+                    </tr>
+                    <tr>
+                        <th>Current Session</th>
+                        <th>{{ GrNumber.current_session }}</th>
+                    </tr>
+                    <tr>
+                        <th>Date Of Admission</th>
+                        <th>{{ GrNumber.admission_date }}</th>
+                    </tr>
+                    <tr>
+                        <th>Previous School</th>
+                        <th>{{ GrNumber.last_school }}</th>
+                    </tr>
+                    <tr>
+                        <th>Religion</th>
+                        <th>{{ GrNumber.religion }}</th>
+                    </tr>
+                    <tr>
+                        <th>Date Of Birth</th>
+                        <th>{{ GrNumber.date_of_birth }}</th>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+    {% csrf_token %}
+</form>
+{% endblock %}

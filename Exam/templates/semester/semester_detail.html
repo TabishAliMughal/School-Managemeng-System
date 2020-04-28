@@ -1,0 +1,23 @@
+{% extends "Mainpage.html" %}
+{% block content %}
+<div class="container">
+     <h1 class="text-center" style="font-family:sans-serif">Here Are All queries In detail Form</h1>
+     <h1><caption>Details Of Queries</caption></h1>
+        <table class="table table-hover table-sm table-dark">
+              <tbody>
+                <tr>
+                    <th>exam_code</th>
+                    <th>{{ Entry.exam_code }}</th>
+                </tr>
+                <tr>
+                    <th>Semester_code</th>
+                    <th>{{ Entry.semester_code }}</th>
+                </tr>
+                <tr>
+                    <th>Semester_name</th>
+                    <th>{{ Entry.semester_name }}</th>
+                </tr>
+        </table>
+        <button class="text-right"><a href="{% url 'semester_form'%}">Add</a></button>
+</div>
+{% endblock %}

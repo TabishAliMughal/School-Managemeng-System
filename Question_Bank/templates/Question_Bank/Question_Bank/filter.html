@@ -1,0 +1,10 @@
+{% extends 'MainPage.html' %}
+{% block content %}
+    
+    <tr>{% for i in question_bank %}</tr>
+    <th>
+      <td>{{ i }}</td><br><br>
+
+    </th>
+    {% endfor %}
+{% endblock %}

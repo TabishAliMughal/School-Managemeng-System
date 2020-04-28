@@ -1,0 +1,18 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<h1>here we can mark form</h1>
+<form action="{% url 'mark_form' %}" method="POST">
+<a>Gr_no = {{mark_form.exam_Gr_no }}</a><a href="{% url 'gr_create' %}"> Add GR </a><br><br>
+<a>Class_code = {{mark_form.class_code }}</a><a href="{% url 'class_form' %}"> Add Class </a><br><br>
+<a>Subject_code = {{mark_form.subject_code }}</a><a href="{% url 'subject_form' %}"> Add Subject </a><br><br>
+<a>exam_code = {{mark_form.exam_code }}</a><a href="{% url 'exam_form' %}"> Add Exam </a><br><br>
+<a>semester_code = {{mark_form.semester_code }}</a><a href="{% url 'semester_form' %}"> Add Semester </a><br><br>
+<a>semesterB_code = {{mark_form.semesterbreakup_code }}</a><a href="{% url 'semesterB_form' %}"> Add SemesterB </a><br><br>
+<a>Quater_code = {{mark_form.quater_code }}</a><a href="{% url 'quater_form' %}"> Add Quater </a><br><br>
+<a>Assesment_code = {{mark_form.assesment_code }}</a><a href="{% url 'assesment_form' %}"> Add assesment </a><br><br>
+<a>total_marks= {{mark_form.total_marks }}</a><br><br>
+<a>Obtained_marks= {{mark_form.obtained_marks }}</a><br><br>
+{% csrf_token %}
+<input type="submit" value="Add to Mark">
+</form>
+{% endblock %}

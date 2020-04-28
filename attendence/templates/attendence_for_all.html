@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% extends "MainPage.html" %}
+{% block content %}
+
+<div class="container">
+
+    <!--Main Heading-->
+    <div class="section-title">
+        <h2>Attendence <span class="light-text">DIGITAL SCHOOL</span></h2>
+        <div class="title-border-container">
+            <div class="title-border"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <form action="{% url 'attendence_list_template' %}" method="POST">
+                    <label>Select Class</label>
+                    <select name="class">
+                        <option value="">---------</option>
+                        {% for rows in class %}
+                                <option value="{{ rows.class_code }}">{{ rows.class_name }}
+                                </option>
+                        {% endfor %}
+                    </select>
+                    <label for="fname">Select Section</label>
+                    <select name="section" >
+                        <option value="">---------</option>
+                        {% for rows in section %}
+                                <option value="{{ rows.sect_code }}">{{ rows.sect_name }}
+                                </option>
+                        {% endfor %}
+                    </select>
+                    <label for="fname">Select Date</label>
+                    <input type='date' name = "date" value=""/><br><br>
+                    {% csrf_token %}
+                    
+                    <input class="btn btn-primary" type="submit" value="Search"/>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+    {% if date == '' %}
+        <a>Date : {{tdate}} </a>
+    {% else %}
+        <a>Date : {{date}} </a>
+    {% endif %}
+    <form action="{% url 'attendence_save_template' %}" method="POST">
+        <table class="table table-hover table-sm table-dark">
+            <thead>
+                <tr>
+                    <th class="editable" >Gr Number</th>
+                    <th class="editable" >Student</th>
+                    <th class="editable" >Classes</th>
+                    <th class="editable" >Sections</th>
+                    <th class="editable" >Present</th>
+                    <th class="editable" >Abesent</th>
+                    <th class="editable" >Leave</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        {% for i in attend %}
+                        <td><input class="editable" type="text" name="gr" value="{{ i.gr_number }}" readonly></td>
+                        <td><input class="editable" type="text" name="name" value="{{ i.name }}" readonly></td>
+                        <td><input class="editable" type="text" name="class" value="{{ i.current_class }}" readonly></td>
+                        <td><input class="editable" type="text" name="section" value="{{ i.section }}" readonly></td>
+
+                        <td style="text-align:center;"><input type="radio" name="{{ i.gr_number }}" value="present"></td>
+                        <td style="text-align:center;"><input type="radio" name="{{ i.gr_number }}" value="absent"></td>
+                        <td style="text-align:center;"><input type="radio" name="{{ i.gr_number }}" value="leave"></td>
+                        
+                        {% if date == '' %}
+                            <input class="editable" type="text" name="date" value="{{ tdate }}" hidden readonly>
+                        {% else %}
+                            <input class="editable" type="text" name="date" value="{{date}}" hidden readonly>
+                        {% endif %}
+
+                        {% csrf_token %}
+                    </tr>
+                    {% endfor %}
+                </tbody>            
+        </table>
+        <button type="submit" class="btn btn-primary" name="button">Save</button>
+    </form>
+        
+</div>
+    
+{% endblock %}

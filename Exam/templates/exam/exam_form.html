@@ -1,0 +1,9 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<h1>here we can exam form</h1>
+<form action="{% url 'exam_form' %}" method="POST">
+<a>exam_session = {{user_form.exam_session }}</a><a href="{% url 'session_form' %}"> Add Session </a><br><br>
+{% csrf_token %}
+<input type="submit" value="Add to Exam">
+</form>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "MainPage.html" %}
+{% block content %}
+<form method="POST">
+    <div class="container">
+        <h2 class="text-center" style="font-family:sans-serif;">Sending Sms</h2><hr/>
+        <table class="table table-hover table-sm table-dark">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Form</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tool</td>
+                    <td>
+                        <select name="tool" >
+                            <option value="">---------</option>
+                            <option value="Sms">Sms</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Class</td>
+                    <td>
+                        <select name="clas">
+                        <option value="">---------</option>
+                            {% for i in data %}
+                                <option value="{{ i.class_name }}">{{ i.class_name }}
+                            {% endfor %}
+                        </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ComPort</td>
+                    <td><input class="input100" type="com" name="com" placeholder="Com Port"></td>
+                </tr>
+                <tr>
+                    <td>Sms</td>
+                    <td><input class="input100" type="text" name="sms" placeholder="Type Message"></td>
+                </tr>
+                <tr>
+                    <td>Send</td>
+                    <td><input class="btn btn-primary" type="submit" value="Send"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% csrf_token %}
+
+</form>
+
+{% endblock %}
