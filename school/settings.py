@@ -142,3 +142,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+import django_heroku
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
