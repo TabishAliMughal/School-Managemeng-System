@@ -578,8 +578,6 @@ a, .img {
 
             height: 4px;
 
-            background-image: url(../img/slider-strip.png);
-
             display: block;
 
             position: absolute;
@@ -994,8 +992,6 @@ a, .img {
 
     .contain .strip {
 
-        background-image: url(../img/pattern-footer.jpg);
-
         padding-top: 42px;
 
         padding-bottom: 38px;
@@ -1248,8 +1244,6 @@ a, .img {
 
         position: relative;
 
-        background-image: url(../img/banner/selection.jpg);
-
         background-position: center;
 
         background-size: cover;
@@ -1259,8 +1253,6 @@ a, .img {
         .contain .banner::after {
 
             content: '';
-
-            background-image: url(../img/slider-strip.png);
 
             bottom: 0px;
 
@@ -1490,8 +1482,6 @@ a, .img {
 
         position: relative;
 
-        background-image: url(../img/banner/demo.jpg);
-
         background-position: center;
 
         background-size: 100% auto;
@@ -1567,8 +1557,6 @@ a, .img {
         .contain .banner-categorie::after {
 
             content: '';
-
-            background-image: url(../img/slider-strip.png);
 
             width: 100%;
 
