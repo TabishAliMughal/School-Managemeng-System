@@ -9,7 +9,7 @@ class Gr(models.Model):
     query_code = models.OneToOneField(Entry_data , on_delete= models.CASCADE , blank=True , null=True)
     name = models.CharField(max_length = 200)
     picture = models.ImageField(upload_to='images/%Y/%m/%d',blank=True)
-    family_code = models.ForeignKey(Family , on_delete= models.CASCADE)
+    family_code = models.ForeignKey(Family , on_delete= models.CASCADE , blank = True , null = True)
     section = models.ForeignKey(Section , on_delete= models.CASCADE)
     fee_concession_code = models.ForeignKey(Fee_Concession , on_delete= models.CASCADE)
     class_of_admission = models.ForeignKey(Class , on_delete= models.CASCADE , related_name= 'admission_class')
