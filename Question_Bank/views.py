@@ -443,49 +443,51 @@ def delete_question_type(request, Q_type_code):
 # @allowed_users(allowed_roles=['Admin','Accountant'])
 def filtered_Questions(request):
     if request.method == 'POST':
+        a = (request.POST.getlist('abc'))
+        b = (request.POST.getlist('type'))
+        v = '0'
+        c = []
+        for i in a:
+            c.append([a[int(v)],b[int(v)]])
+            v = int(v) + 1
         InSubject = request.POST.get('subject')
         InClass = request.POST.get('classes')
         InBook = request.POST.get('book')
         InChapter = request.POST.get('chapter')
-        InQuestionType = request.POST.get('question_type')
-        # InQuestionFrom = request.POST.get('questions_from')
         InQuantity = request.POST.get('qty')
-        pool= list(Question_Bank.objects.all())
-        # print(Class)
+        # quest_type = Question_Type.objects.all()
         context = {'question_bank': 'No Matching Questions Found'}
+        all = Question_Bank.objects.all()
+        ben = []
+        for i in all:
+            ben.append(i)
+        random.shuffle(ben)
         Ques = []
-        for prows in pool:
-            p_rows = prows
-            for srows in Subject.objects.all():
-                s_rows = srows
-                for crows in Class.objects.all():
-                    c_rows = crows
-                    for brows in Book.objects.all():
-                        b_rows = brows
-                        for chrows in Chapter.objects.all():
-                            ch_rows = chrows
-                            for qtrows in Question_Type.objects.all():
-                                qt_rows = qtrows
-                                # for qfrows in Question_Bank.objects.all():
-                                #     qf_rows = qfrows
-                                if str(s_rows.subject_code) == str(InSubject):
-                                    if str(s_rows.subjects) == str(p_rows.subject):
-                                        if str(c_rows.class_code) == str(InClass):
-                                            if str(c_rows.class_name) == str(p_rows.classes):
-                                                if str(b_rows.book_code) == str(InBook):
-                                                    if str(b_rows.book_name) == str(p_rows.book):
-                                                        if str(ch_rows.chapter_code) == str(InChapter):
-                                                            if str(ch_rows.chapter_name) == str(p_rows.chapter):
-                                                                if str(qt_rows.Q_type_code) == str(InQuestionType):
-                                                                    if str(qt_rows.question_type) == str(p_rows.question_type):
-                                                                        # if str(qf_rows.question_code) == str(InQuestionFrom):
-                                                                        #     if str(qf_rows.questions_from) == str(p_rows.questions_from):
-                                                        
-                                                                        Ques.append(p_rows.question)
-                                                                        random.shuffle( Ques )
-                                                                        object_list = Ques[:int(InQuantity)]
-                                                                        context = {'question_bank': object_list}
-        return render(request, 'Question_Bank/Question_Bank/filter.html', context)
+        # for i in range(0,int(InQuantity)):
+        endques = []
+        for s in range(0,int(InQuantity)):
+            for t in c:
+                qtype = [t[0]]
+                for i in ben:
+                    if str(i.subject.pk) == str(InSubject) and str(i.classes.pk) == str(InClass) and str(i.book.pk) == str(InBook) and str(i.chapter.pk) == str(InChapter) and str(i.question_type) == str(t[0]):
+                        qtype.append(i.question)
+                finalques = []
+                for v in Ques:
+                    abc = []
+                    for i in c:
+                        if str(i[0]) == str(v[0]):
+                            f = (v[1:int(i[1])+1])
+                            for k in f:
+                                abc.append(k)
+                        random.shuffle(abc)
+                        finalques.append({'type':v[0],'ques':abc})
+            endques.append(finalques)
+        # print(finalques)
+        context = {'finalques':endques}
+        # return render(request,'Question_Bank/Question_Bank/print.html',context)
+        pdf = PdfMaker('Question_Bank/Question_Bank/print.html', context)
+        return HttpResponse(pdf, content_type='application/pdf')
+
 
 # @login_required(login_url='login_url')
 # @allowed_users(allowed_roles=['Admin','Accountant'])
@@ -665,8 +667,8 @@ def book_list(request):
 
 
 def question_bank_list(request):
-    # lists = Question_Bank.objects.all()
-    # myFilter = question_bank_form()
+    lists = Question_Bank.objects.all()
+    myFilter = question_bank_form()
     # context = {'question_bank': lists , 'myFilter' : myFilter}
     # return render(request, 'Question_Bank/Question_Bank/list.html', context)
     if request.method == 'POST':
@@ -696,7 +698,7 @@ def question_bank_list(request):
         elif InQType == "":
             lists = get_list_or_404(Question_Bank, question_type = InQType)
         else:
-            lists - get_list_or_404(Question_Bank, classes = InClasses, subject = InSubjects, book = InBook, chapter = InChapter, question_type = InQType)
+            lists = get_list_or_404(Question_Bank, classes = InClasses, subject = InSubjects, book = InBook, chapter = InChapter, question_type = InQType)
         code = {
             'q_bank': lists,
             'class' : classes_,
@@ -705,10 +707,11 @@ def question_bank_list(request):
             'chapter': chapters_,
             'quest_type': quest_types_,
             'question_bank': lists , 
-            'myFilter' : myFilter
+            'myFilter' : myFilter,
         }
         return render(request, 'Question_Bank/Question_Bank/list.html', code)
     else:
+        lists = Question_Bank.objects.all()
         classes_ = CLASS()
         subjects_ = SUBJ()
         books_ = BOOK()
@@ -725,5 +728,4 @@ def question_bank_list(request):
             'question_bank': lists , 
             'myFilter' : myFilter,
         }
-        return render(request, 'Question_Bank/Question_Bank/list.html', code)
-    
+        return render(request, 'Question_Bank/Question_Bank/list.html')

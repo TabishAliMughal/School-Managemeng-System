@@ -1,6 +1,21 @@
 {% extends 'MainPage.html' %}
     {% block content %}
 
+<div class="row">
+      <div class="col">
+          <div class="card card-body">
+              <form action="{% url 'class_subject_list' %}" method="POST">
+                  <label>Select Class</label>
+                  <select name="class">
+                      <option value="">---------</option>
+                      {% for rows in class %}
+                              <option value="{{ rows.class_code }}">{{ rows.class_name }}</option>
+                      {% endfor %}
+                  </select>
+                  {% csrf_token %}
+                  <input class="btn btn-primary" type="submit" value="Search"/>
+              </form>
+
     
 <div class="container">
     <h2 style="color:purple;" class="text-center" style="font-family:sans-serif;"><b>Classes Subjects</b></h2><hr/>
@@ -14,7 +29,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for v in class_subject %}
+    {% for v in subjec %}
     <tr>
       <td>{{v.Class_code}}</td>
       <td><a href="{{ v.get_absolute_url }}">{{v.Class}}</a></td>

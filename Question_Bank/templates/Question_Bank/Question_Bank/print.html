@@ -1,17 +1,31 @@
 <html>
-<body>
-<div class="container">
-        <h2 align="center">Questions</h2><hr/>
-        <table class="table table-hover table-sm table-dark">
-            <tr>
-                <th>Questions</th>
-            </tr>
-            {% for i in abc %}
-            <tr>
-                <td>{{ i.question }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-</div>
-</body>
+    <body>
+        
+        {% for p in finalques %}
+            <div class="container">
+                <h2 class="text-center" style="font-family:sans-serif; ">Questions</h2><hr/>
+                <table class="table table-hover table-sm table-dark">
+                    <thead>
+                        <tr>
+                            <th style="font-size:130%; color:purple"><b>Questions</b><br></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {% for i in p %}
+                                    <tr>
+                                        <th><h5 style="font-family:sans-serif; text-align:left; color: purple; font-size:120%;">{{i.type}}<br></h5></th>
+                                    </tr>
+                                    {% for v in i.ques %}
+                                    <tr>
+                                        <td>{{v}}<br></td>
+                                    </tr>
+                                    {% endfor %}
+                                    
+                            {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+                <P style="page-break-before: always">
+        {% endfor %}
+    </body>
 </html>

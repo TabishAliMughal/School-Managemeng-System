@@ -83,8 +83,8 @@ urlpatterns = [
     path('edit_fee_type/<fee_type_code>+/', views.edit_fee_type, name = 'edit_fee_type'),
     path('delete_fee_type/<fee_type_code>+/', views.delete_fee_type, name = 'delete_fee_type'),
 
-    path('month_list/',views.month_list, name = 'month_list'),
-    path('month_form/',views.months, name = 'month_form'),
+    # path('month_list/',views.month_list, name = 'month_list'),
+    # path('month_form/',views.months, name = 'month_form'),
 
 
     path('city_list/',views.city_list, name = 'city_list'),
