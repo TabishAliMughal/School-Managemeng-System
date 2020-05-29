@@ -84,10 +84,11 @@
           <a>Class = {{ myFilter.classes }}</a><br><br>
           <a>Book = {{ myFilter.book }}</a><br><br>
           <a>Chapter = {{ myFilter.chapter }}</a><br><br>
-          <a>Question Type = {{ myFilter.question_type }}</a><br><br>
+          {% for i in quest_type %}
+          <a><input type="text" name="abc" value="{{ i }}" readonly> <input type="number" name="type" ></a><br>
+          {% endfor %}<br><br>
           <a>From = {{ myFilter.questions_from }}</a><br><br>
-          <a>Quantity = <input name="qty"></input><br><br>
-          <input type ="submit" value="Search"/>
+          <a>Quantity = <input type="number" name="qty"><br><br>
           <input class="btn btn-primary" type="submit" value="Print"/>      
       </form>
     </div>

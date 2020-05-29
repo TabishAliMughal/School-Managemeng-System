@@ -777,11 +777,34 @@ def delete_subject(request, subject_code):
     }
     return render(request, 'Dependencies/Subjects/list.html', context)
 
+
+def CLASS():
+    Cla = Class.objects.all()
+    return Cla
+
+def C_SUBJ():
+    sub = Class_Subject.objects.all()
+    return sub
+
 # @login_required(login_url='login_url')
 def class_subject_list(request):
-    cla_sub = Class_Subject.objects.all()
-    context = {'class_subject': cla_sub}
-    return render(request, 'Dependencies/Class_Subjects/list.html', context)
+    if request.method == 'POST':
+        InClass = request.POST.get('class')
+        classes = CLASS()
+        lis = get_list_or_404(Class_Subject, Class_id = InClass)
+        context = {
+            'subjec': lis,
+            'class': classes,
+        }
+        return render(request, 'Dependencies/Class_Subjects/list.html', context)
+    else:
+        classes = CLASS()
+        bas = C_SUBJ()
+        context = {
+            # 'subjec': bas,
+            'class': classes,
+        }
+        return render(request, 'Dependencies/Class_Subjects/list.html', context)
 
 # @login_required(login_url='login_url')
 # @allowed_users(allowed_roles=['Admin','Accountant'])
@@ -945,32 +968,32 @@ def delete_fee_type(request, fee_type_code):
 
 
 # @login_required(login_url='login_url')
-def month_list(request):
-    mon = Month.objects.all()
-    context = {'month': mon}
-    return render(request, 'Dependencies/Months/list.html', context)
+# def month_list(request):
+#     mon = Month.objects.all()
+#     context = {'month': mon}
+#     return render(request, 'Dependencies/Months/list.html', context)
 
 # @login_required(login_url='login_url')
 # @allowed_users(allowed_roles=['Admin','Accountant'])
-def months(request):
-    if request.method == 'POST':
-        user_form = month_form(request.POST)
-        if user_form.is_valid():
-            months = user_form.save()
-            context = {
-                'return': 'Has been added successfully'
-            }
-            return render(request,'Dependencies/Months/created_month_form.html', context)
-        else:
-            context = {
-                'return': 'Is not valid'
-            }
-            return render(request,'Dependencies/Months/created_month_form.html', context)
-    else:
-        user_form = month_form()
-        return render(request,'Dependencies/Months/month_form.html',{'user_form':user_form})
+# def months(request):
+#     if request.method == 'POST':
+#         user_form = month_form(request.POST)
+#         if user_form.is_valid():
+#             months = user_form.save()
+#             context = {
+#                 'return': 'Has been added successfully'
+#             }
+#             return render(request,'Dependencies/Months/created_month_form.html', context)
+#         else:
+#             context = {
+#                 'return': 'Is not valid'
+#             }
+#             return render(request,'Dependencies/Months/created_month_form.html', context)
+#     else:
+#         user_form = month_form()
+#         return render(request,'Dependencies/Months/month_form.html',{'user_form':user_form})
 
-# @login_required(login_url='login_url')
+# # @login_required(login_url='login_url')
 def city_list(request):
     cit = City.objects.all()
     context = {'city': cit}
