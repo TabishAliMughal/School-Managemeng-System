@@ -1,5 +1,8 @@
 {% extends "MainPage.html" %}
 {% block content %}
+<form action="{% url 'gr_create' '1' %}" id="test" method="GET">
+    {% csrf_token %}
+</form>
 <form action="{% url "gr_create" %}" method="POST">
     <div class="container">
         <h2 class="text-center" style="font-family:sans-serif;">Gr Add Form</h2><hr/>
@@ -9,72 +12,99 @@
                 <tr>
                     <th>Name</th>
                     <th>Form</th>
+                    <th>Add</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Gr Number</td>
-                    <td>{{user_form.gr_number }}</td>
+                    <td><input type="number" name="gr_number" value="{{ gr }}" required /></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Query</td>
-                    <td>{{user_form.query_code }}<a href="{% url "entry_form" %}"> + </a></td>
+                    <td>
+                        <select name="query_code" form="test" >
+                            <option value="">Select a query...</option>
+                            {% for i in data %}
+                                <option value="{{i.pk}}" >{{ i.Name }}</option>
+                            {% endfor %}
+                        </select>
+                        <input class="btn btn-primary" style="width: 100px !important;" type="submit" form="test" value="Autofill" />
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'entry_form' %}"> + </a>
+                    </td>
                 </tr>
                 <tr>
                     <td>Name</td>
-                    <td>{{user_form.name }}</td>
+                    <td><input type="text" id="name" name="name" value="{{ query.Name }}" required /></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Picture</td>
                     <td>{{user_form.picture }}</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Family</td>
-                    <td>{{user_form.family_code }}<a href="{% url "family_form" %}"> + </a></td>
+                    <td>{{user_form.family_code }}</td>
+                    <td><a class="btn btn-primary" href="{% url "family_form" %}"> + </a></td>
                 </tr>
                 <tr>
                     <td>Section</td>
-                    <td>{{user_form.section }}<a href="{% url "section_form" %}"> + </a></td>
+                    <td>{{user_form.section }}</td>
+                    <td><a class="btn btn-primary" href="{% url "section_form" %}"> + </a></td>
                 </tr>
                 <tr>
                     <td>Fee</td>
-                    <td>{{user_form.fee_concession_code }}<a href="{% url "fee_concession_form" %}"> + </a></td>
+                    <td>{{user_form.fee_concession_code }}</td>
+                    <td><a class="btn btn-primary" href="{% url "fee_concession_form" %}"> + </a></td>
                 </tr>
                 <tr>
                     <td>Class Of Admission</td>
-                    <td>{{user_form.class_of_admission }}<a href="{% url "class_form" %}"> + </a></td>
+                    <td>{{user_form.class_of_admission }}</td>
+                    <td><a class="btn btn-primary" href="{% url "class_form" %}"> + </a></td>
                 </tr>
                 <tr>
                     <td>Session Of Admission</td>
-                    <td>{{user_form.session_of_admission }}<a href="{% url "session_form" %}"> + </a></td>
+                    <td>{{user_form.session_of_admission }}</td>
+                    <td><a class="btn btn-primary" href="{% url "session_form" %}"> + </a></td>
                 </tr>
                 <tr>
                     <td>Current Class</td>
-                    <td>{{user_form.current_class }}<a href="{% url "class_form" %}"> + </a></td>
+                    <td>{{user_form.current_class }}</td>
+                    <td><a class="btn btn-primary" href="{% url "class_form" %}"> + </a></td>
                 </tr>
                 <tr>
                     <td>Current Session</td>
-                    <td>{{user_form.current_session }}<a href="{% url "session_form" %}"> + </a></td>
+                    <td>{{user_form.current_session }}</td>
+                    <td><a class="btn btn-primary" href="{% url "session_form" %}"> + </a></td>
                 </tr>
                 <tr>
                     <td>Admission Date</td>
-                    <td>{{user_form.admission_date }}</td>
+                    <td><input type="date" id="theDate" name="admission_date" required /></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Last School</td>
-                    <td>{{user_form.last_school }}<a href="{% url "school_form" %}"> + </a></td>
+                    <td>{{user_form.last_school }}</td>
+                    <td><a class="btn btn-primary" href="{% url "school_form" %}"> + </a></td>
                 </tr>
                 <tr>
                     <td>Religion</td>
-                    <td>{{user_form.religion }}<a href="{% url "religion_form" %}"> + </a></td>
+                    <td>{{user_form.religion }}</td>
+                    <td><a class="btn btn-primary" href="{% url "religion_form" %}"> + </a></td>
                 </tr>
                 <tr>
                     <td>Date Of Birth</td>
-                    <td>{{user_form.date_of_birth }}</td>
+                    <td><input type="date" value="2000-01-01" name="date_of_birth" required /></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Active</td>
                     <td>{{user_form.active }}</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Submit</td>

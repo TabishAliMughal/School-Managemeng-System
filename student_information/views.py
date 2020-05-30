@@ -90,7 +90,7 @@ def ManageGrDataDownloadView(DownloadView):
 
 # @login_required(login_url='login_url')
 # @allowed_users(allowed_roles=['Admin','Accountant'])
-def ManageGrCreateView(CreateView):
+def ManageGrCreateView(CreateView , query=None):
     if CreateView.method == 'POST':
         user_form = EntryForm(CreateView.POST)
         if user_form.is_valid():
@@ -104,9 +104,43 @@ def ManageGrCreateView(CreateView):
                 'return': 'Is Not Valid'
             }
             return render(CreateView,'Student/Create/created.html',context)
+    if query:
+        form = CreateView.GET
+        query = get_object_or_404(Entry_data , pk = int(form.get('query_code')) )
+        data = Entry_data.objects.all()
+        user_form = EntryForm({'query_code':query,'name':query.Name,'fee_concession_code': query.Fee_type,'last_school':query.Previous_school , 'class_of_admission' : query.Suggested_class })
+        Previous_school = 'selected="{}"'.format(query.Previous_school.pk)
+        grnum = []
+        for i in Gr.objects.all():
+            grnum.append(i.gr_number)
+        gr=""
+        for i in grnum:
+            gr = int(max(grnum) + 1)
+        abc = '123'
+        context = {
+            'user_form':user_form ,
+            'gr' : gr ,
+            'data' : data ,
+            'query':query ,
+            'Previous_school':Previous_school ,
+            'abc' : abc ,
+        }
+        return render(CreateView,'Student/Create/create.html',context)
     else:
+        grnum = []
+        for i in Gr.objects.all():
+            grnum.append(i.gr_number)
+        gr=""
+        for i in grnum:
+            gr = int(max(grnum) + 1)
+        data = Entry_data.objects.all()
         user_form = EntryForm()
-        return render(CreateView,'Student/Create/create.html',{'user_form':user_form})
+        context = {
+            'user_form':user_form ,
+            'gr' : gr ,
+            'data' : data ,
+        }
+        return render(CreateView,'Student/Create/create.html',context)
 
 # @login_required(login_url='login_url')
 # @allowed_users(allowed_roles=['Admin','Accountant'])
